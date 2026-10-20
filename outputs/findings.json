@@ -1,0 +1,244 @@
+{
+  "kpis": {
+    "orders": 97050,
+    "delivered": 92105,
+    "customers": 20436,
+    "gmv": 53943265.0,
+    "net_revenue": 49794506.0,
+    "contribution": 6285953.619999999,
+    "aov": 540.6276097931708,
+    "cancel_rate": 0.05095311695002576,
+    "sla_rate": 0.5413929754085012,
+    "avg_minutes": 10.648884425384072,
+    "median_minutes": 9.6,
+    "avg_rating": 4.119888817020087,
+    "contribution_margin": 0.12623789499990218,
+    "repeat_customer_share": 0.6998923468389118,
+    "orders_from_repeat_customers": 0.9368057702215353
+  },
+  "hour_sla": {
+    "peak": 0.44883393189980453,
+    "off_peak": 0.6260314688948473,
+    "peak_order_share": 0.4776505075728788
+  },
+  "festival_uplift_vs_prior_14d": {
+    "Christmas & New Year": 0.3536643026004729,
+    "Diwali": 0.7283950617283952,
+    "Ganesh Chaturthi": 0.38400546821599457,
+    "Holi": 0.3815073815073815
+  },
+  "rain": [
+    {
+      "is_rain_day": 0,
+      "days": 281,
+      "orders": 69219,
+      "cancel_rate": 0.0406535777748884,
+      "orders_per_store_day": 34.95909090909091,
+      "sla_rate": 0.5951509675476244,
+      "avg_minutes": 9.962302537459529
+    },
+    {
+      "is_rain_day": 1,
+      "days": 84,
+      "orders": 27831,
+      "cancel_rate": 0.07656929323416334,
+      "orders_per_store_day": 42.68558282208589,
+      "sla_rate": 0.40249027237354085,
+      "avg_minutes": 12.422910505836576
+    }
+  ],
+  "rain_demand_uplift_monsoon": 0.07941039925719595,
+  "m1_retention": 0.5028581925752641,
+  "m3_retention": 0.28777029095317236,
+  "best_store": {
+    "store_id": "S06",
+    "store_name": "Koregaon Park",
+    "delivered": 10516,
+    "sla_rate": 0.76,
+    "avg_minutes": 8.248,
+    "avg_distance_km": 1.302,
+    "aov": 632.146,
+    "contribution_per_order": 90.895,
+    "avg_rating": 4.411,
+    "cancel_rate": 0.047
+  },
+  "worst_store": {
+    "store_id": "S03",
+    "store_name": "Hinjewadi",
+    "delivered": 12369,
+    "sla_rate": 0.304,
+    "avg_minutes": 13.947,
+    "avg_distance_km": 2.277,
+    "aov": 508.154,
+    "contribution_per_order": 58.982,
+    "avg_rating": 3.634,
+    "cancel_rate": 0.058
+  },
+  "sweets_festival_revenue_share": 0.39879548275403853,
+  "cancel_reasons": {
+    "Customer cancelled": 0.3759,
+    "Delay": 0.3511,
+    "Item unavailable": 0.1377,
+    "Payment failed": 0.1353
+  },
+  "contribution_per_order_coupon": {
+    "0": 95.86,
+    "1": 17.39
+  },
+  "rating_vs_delay": [
+    {
+      "delay_band": "On time (<=10)",
+      "rated_orders": 30814,
+      "avg_rating": 4.549,
+      "low_rating_share": 0.0
+    },
+    {
+      "delay_band": "10-12",
+      "rated_orders": 9156,
+      "avg_rating": 4.368,
+      "low_rating_share": 0.001
+    },
+    {
+      "delay_band": "12-15",
+      "rated_orders": 8443,
+      "avg_rating": 3.859,
+      "low_rating_share": 0.012
+    },
+    {
+      "delay_band": "15-20",
+      "rated_orders": 5920,
+      "avg_rating": 3.066,
+      "low_rating_share": 0.193
+    },
+    {
+      "delay_band": "20+",
+      "rated_orders": 2870,
+      "avg_rating": 1.668,
+      "low_rating_share": 0.868
+    }
+  ],
+  "channel": [
+    {
+      "acquisition_channel": "Organic",
+      "customers": 8673,
+      "orders": 45814,
+      "net_revenue": 23480429.0,
+      "orders_per_customer": 5.28,
+      "revenue_per_customer": 2707.3
+    },
+    {
+      "acquisition_channel": "Paid Ads",
+      "customers": 5305,
+      "orders": 17172,
+      "net_revenue": 8701206.0,
+      "orders_per_customer": 3.24,
+      "revenue_per_customer": 1640.19
+    },
+    {
+      "acquisition_channel": "Referral",
+      "customers": 4497,
+      "orders": 23705,
+      "net_revenue": 12279221.0,
+      "orders_per_customer": 5.27,
+      "revenue_per_customer": 2730.54
+    },
+    {
+      "acquisition_channel": "Society Activation",
+      "customers": 1961,
+      "orders": 10359,
+      "net_revenue": 5333650.0,
+      "orders_per_customer": 5.28,
+      "revenue_per_customer": 2719.86
+    }
+  ],
+  "payments": [
+    {
+      "payment_method": "Card",
+      "orders": 13366,
+      "cancel_rate": 0.0457
+    },
+    {
+      "payment_method": "Cash on Delivery",
+      "orders": 15576,
+      "cancel_rate": 0.072
+    },
+    {
+      "payment_method": "UPI",
+      "orders": 60255,
+      "cancel_rate": 0.0468
+    },
+    {
+      "payment_method": "Wallet",
+      "orders": 7853,
+      "cancel_rate": 0.0499
+    }
+  ],
+  "category_top": [
+    {
+      "category": "Tea, Coffee & Breakfast",
+      "units": 34217,
+      "revenue": 6204186.0,
+      "gross_profit": 1299911.46,
+      "margin_pct": 0.2095,
+      "revenue_share": 0.1206
+    },
+    {
+      "category": "Fruits & Vegetables",
+      "units": 70444,
+      "revenue": 5899246.0,
+      "gross_profit": 1827000.12,
+      "margin_pct": 0.3097,
+      "revenue_share": 0.1147
+    },
+    {
+      "category": "Atta, Rice & Dal",
+      "units": 35163,
+      "revenue": 5659847.0,
+      "gross_profit": 482160.27,
+      "margin_pct": 0.0852,
+      "revenue_share": 0.11
+    }
+  ],
+  "rain_sla_by_store": [
+    {
+      "store_name": "Baner",
+      "0": 0.641,
+      "1": 0.435
+    },
+    {
+      "store_name": "Hadapsar",
+      "0": 0.478,
+      "1": 0.303
+    },
+    {
+      "store_name": "Hinjewadi",
+      "0": 0.344,
+      "1": 0.187
+    },
+    {
+      "store_name": "Kharadi",
+      "0": 0.56,
+      "1": 0.375
+    },
+    {
+      "store_name": "Koregaon Park",
+      "0": 0.802,
+      "1": 0.635
+    },
+    {
+      "store_name": "Kothrud",
+      "0": 0.691,
+      "1": 0.481
+    },
+    {
+      "store_name": "Viman Nagar",
+      "0": 0.664,
+      "1": 0.467
+    },
+    {
+      "store_name": "Wakad",
+      "0": 0.533,
+      "1": 0.343
+    }
+  ]
+}

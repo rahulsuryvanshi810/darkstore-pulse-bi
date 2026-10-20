@@ -1,0 +1,133 @@
+product_id,category,product_name,mrp,unit_cost,shelf_life
+P001,Fruits & Vegetables,Fruits item 01,105.0,71.95,Perishable
+P002,Fruits & Vegetables,Fruits item 02,56.0,41.35,Perishable
+P003,Fruits & Vegetables,Fruits item 03,123.0,81.78,Perishable
+P004,Fruits & Vegetables,Fruits item 04,91.0,63.88,Perishable
+P005,Fruits & Vegetables,Fruits item 05,30.0,21.22,Perishable
+P006,Fruits & Vegetables,Fruits item 06,153.0,111.27,Perishable
+P007,Fruits & Vegetables,Fruits item 07,103.0,67.06,Perishable
+P008,Fruits & Vegetables,Fruits item 08,108.0,76.27,Perishable
+P009,Fruits & Vegetables,Fruits item 09,32.0,22.95,Perishable
+P010,Fruits & Vegetables,Fruits item 10,58.0,41.42,Perishable
+P011,Fruits & Vegetables,Fruits item 11,50.0,33.94,Perishable
+P012,Fruits & Vegetables,Fruits item 12,140.0,95.95,Perishable
+P013,Fruits & Vegetables,Fruits item 13,83.0,56.73,Perishable
+P014,Fruits & Vegetables,Fruits item 14,115.0,78.52,Perishable
+P015,Fruits & Vegetables,Fruits item 15,57.0,35.02,Perishable
+P016,Fruits & Vegetables,Fruits item 16,38.0,27.22,Perishable
+P017,"Dairy, Bread & Eggs",Dairy item 01,42.0,36.76,Perishable
+P018,"Dairy, Bread & Eggs",Dairy item 02,45.0,39.21,Perishable
+P019,"Dairy, Bread & Eggs",Dairy item 03,52.0,43.95,Perishable
+P020,"Dairy, Bread & Eggs",Dairy item 04,34.0,29.62,Perishable
+P021,"Dairy, Bread & Eggs",Dairy item 05,31.0,26.44,Perishable
+P022,"Dairy, Bread & Eggs",Dairy item 06,53.0,46.5,Perishable
+P023,"Dairy, Bread & Eggs",Dairy item 07,36.0,31.26,Perishable
+P024,"Dairy, Bread & Eggs",Dairy item 08,71.0,60.69,Perishable
+P025,"Dairy, Bread & Eggs",Dairy item 09,50.0,46.91,Perishable
+P026,"Dairy, Bread & Eggs",Dairy item 10,92.0,82.14,Perishable
+P027,"Dairy, Bread & Eggs",Dairy item 11,75.0,67.41,Perishable
+P028,"Dairy, Bread & Eggs",Dairy item 12,41.0,37.13,Perishable
+P029,"Dairy, Bread & Eggs",Dairy item 13,92.0,81.97,Perishable
+P030,"Dairy, Bread & Eggs",Dairy item 14,88.0,72.18,Perishable
+P031,Snacks & Munchies,Snacks item 01,93.0,66.43,Packaged
+P032,Snacks & Munchies,Snacks item 02,59.0,40.85,Packaged
+P033,Snacks & Munchies,Snacks item 03,73.0,53.81,Packaged
+P034,Snacks & Munchies,Snacks item 04,116.0,82.78,Packaged
+P035,Snacks & Munchies,Snacks item 05,86.0,59.77,Packaged
+P036,Snacks & Munchies,Snacks item 06,71.0,52.0,Packaged
+P037,Snacks & Munchies,Snacks item 07,72.0,50.52,Packaged
+P038,Snacks & Munchies,Snacks item 08,40.0,29.86,Packaged
+P039,Snacks & Munchies,Snacks item 09,21.0,15.42,Packaged
+P040,Snacks & Munchies,Snacks item 10,55.0,40.44,Packaged
+P041,Snacks & Munchies,Snacks item 11,33.0,25.34,Packaged
+P042,Snacks & Munchies,Snacks item 12,51.0,35.73,Packaged
+P043,Snacks & Munchies,Snacks item 13,142.0,104.91,Packaged
+P044,Snacks & Munchies,Snacks item 14,34.0,24.46,Packaged
+P045,Snacks & Munchies,Snacks item 15,23.0,16.12,Packaged
+P046,Snacks & Munchies,Snacks item 16,38.0,26.68,Packaged
+P047,Cold Drinks & Juices,Cold item 01,51.0,38.98,Packaged
+P048,Cold Drinks & Juices,Cold item 02,44.0,31.7,Packaged
+P049,Cold Drinks & Juices,Cold item 03,37.0,29.13,Packaged
+P050,Cold Drinks & Juices,Cold item 04,74.0,56.11,Packaged
+P051,Cold Drinks & Juices,Cold item 05,42.0,33.1,Packaged
+P052,Cold Drinks & Juices,Cold item 06,24.0,18.33,Packaged
+P053,Cold Drinks & Juices,Cold item 07,26.0,18.63,Packaged
+P054,Cold Drinks & Juices,Cold item 08,148.0,121.23,Packaged
+P055,Cold Drinks & Juices,Cold item 09,132.0,96.71,Packaged
+P056,Cold Drinks & Juices,Cold item 10,86.0,63.68,Packaged
+P057,Cold Drinks & Juices,Cold item 11,35.0,27.08,Packaged
+P058,Cold Drinks & Juices,Cold item 12,150.0,121.18,Packaged
+P059,"Atta, Rice & Dal",Atta item 01,277.0,233.09,Packaged
+P060,"Atta, Rice & Dal",Atta item 02,256.0,242.57,Packaged
+P061,"Atta, Rice & Dal",Atta item 03,143.0,132.36,Packaged
+P062,"Atta, Rice & Dal",Atta item 04,212.0,198.66,Packaged
+P063,"Atta, Rice & Dal",Atta item 05,195.0,178.54,Packaged
+P064,"Atta, Rice & Dal",Atta item 06,222.0,212.02,Packaged
+P065,"Atta, Rice & Dal",Atta item 07,71.0,62.1,Packaged
+P066,"Atta, Rice & Dal",Atta item 08,139.0,126.34,Packaged
+P067,"Atta, Rice & Dal",Atta item 09,65.0,62.32,Packaged
+P068,"Atta, Rice & Dal",Atta item 10,162.0,152.38,Packaged
+P069,"Atta, Rice & Dal",Atta item 11,117.0,103.83,Packaged
+P070,"Atta, Rice & Dal",Atta item 12,80.0,69.32,Packaged
+P071,Instant & Frozen Food,Instant item 01,99.0,75.87,Packaged
+P072,Instant & Frozen Food,Instant item 02,100.0,80.14,Packaged
+P073,Instant & Frozen Food,Instant item 03,262.0,216.67,Packaged
+P074,Instant & Frozen Food,Instant item 04,119.0,92.75,Packaged
+P075,Instant & Frozen Food,Instant item 05,97.0,73.93,Packaged
+P076,Instant & Frozen Food,Instant item 06,62.0,42.74,Packaged
+P077,Instant & Frozen Food,Instant item 07,71.0,53.59,Packaged
+P078,Instant & Frozen Food,Instant item 08,107.0,77.11,Packaged
+P079,Instant & Frozen Food,Instant item 09,90.0,70.2,Packaged
+P080,Instant & Frozen Food,Instant item 10,37.0,29.87,Packaged
+P081,Instant & Frozen Food,Instant item 11,206.0,164.51,Packaged
+P082,Instant & Frozen Food,Instant item 12,239.0,188.57,Packaged
+P083,Sweets & Festive,Sweets item 01,180.0,125.68,Packaged
+P084,Sweets & Festive,Sweets item 02,379.0,276.3,Packaged
+P085,Sweets & Festive,Sweets item 03,366.0,267.59,Packaged
+P086,Sweets & Festive,Sweets item 04,165.0,111.06,Packaged
+P087,Sweets & Festive,Sweets item 05,462.0,284.98,Packaged
+P088,Sweets & Festive,Sweets item 06,158.0,106.43,Packaged
+P089,Sweets & Festive,Sweets item 07,228.0,156.12,Packaged
+P090,Sweets & Festive,Sweets item 08,150.0,100.29,Packaged
+P091,Sweets & Festive,Sweets item 09,450.0,282.49,Packaged
+P092,Sweets & Festive,Sweets item 10,129.0,86.59,Packaged
+P093,Personal Care,Personal item 01,228.0,158.3,Packaged
+P094,Personal Care,Personal item 02,117.0,80.24,Packaged
+P095,Personal Care,Personal item 03,61.0,38.08,Packaged
+P096,Personal Care,Personal item 04,277.0,184.42,Packaged
+P097,Personal Care,Personal item 05,90.0,58.52,Packaged
+P098,Personal Care,Personal item 06,431.0,282.97,Packaged
+P099,Personal Care,Personal item 07,86.0,54.74,Packaged
+P100,Personal Care,Personal item 08,65.0,38.59,Packaged
+P101,Personal Care,Personal item 09,337.0,217.83,Packaged
+P102,Personal Care,Personal item 10,70.0,43.7,Packaged
+P103,Personal Care,Personal item 11,74.0,54.17,Packaged
+P104,Personal Care,Personal item 12,197.0,128.43,Packaged
+P105,Cleaning & Household,Cleaning item 01,210.0,149.75,Packaged
+P106,Cleaning & Household,Cleaning item 02,166.0,109.54,Packaged
+P107,Cleaning & Household,Cleaning item 03,74.0,50.21,Packaged
+P108,Cleaning & Household,Cleaning item 04,265.0,171.32,Packaged
+P109,Cleaning & Household,Cleaning item 05,220.0,155.36,Packaged
+P110,Cleaning & Household,Cleaning item 06,231.0,168.13,Packaged
+P111,Cleaning & Household,Cleaning item 07,65.0,46.08,Packaged
+P112,Cleaning & Household,Cleaning item 08,64.0,44.18,Packaged
+P113,Cleaning & Household,Cleaning item 09,343.0,237.68,Packaged
+P114,Cleaning & Household,Cleaning item 10,113.0,84.0,Packaged
+P115,Baby Care,Baby item 01,133.0,102.06,Packaged
+P116,Baby Care,Baby item 02,238.0,174.16,Packaged
+P117,Baby Care,Baby item 03,745.0,602.83,Packaged
+P118,Baby Care,Baby item 04,344.0,277.32,Packaged
+P119,Baby Care,Baby item 05,695.0,601.79,Packaged
+P120,Baby Care,Baby item 06,531.0,417.64,Packaged
+P121,Baby Care,Baby item 07,263.0,216.32,Packaged
+P122,Baby Care,Baby item 08,510.0,408.6,Packaged
+P123,"Tea, Coffee & Breakfast",Tea item 01,117.0,99.08,Packaged
+P124,"Tea, Coffee & Breakfast",Tea item 02,132.0,107.54,Packaged
+P125,"Tea, Coffee & Breakfast",Tea item 03,222.0,174.57,Packaged
+P126,"Tea, Coffee & Breakfast",Tea item 04,367.0,268.22,Packaged
+P127,"Tea, Coffee & Breakfast",Tea item 05,141.0,118.37,Packaged
+P128,"Tea, Coffee & Breakfast",Tea item 06,87.0,70.45,Packaged
+P129,"Tea, Coffee & Breakfast",Tea item 07,85.0,65.36,Packaged
+P130,"Tea, Coffee & Breakfast",Tea item 08,277.0,216.78,Packaged
+P131,"Tea, Coffee & Breakfast",Tea item 09,326.0,265.71,Packaged
+P132,"Tea, Coffee & Breakfast",Tea item 10,63.0,50.74,Packaged

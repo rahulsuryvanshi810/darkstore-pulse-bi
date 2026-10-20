@@ -1,0 +1,277 @@
+// =====================================================================
+// DarkStore Pulse - DAX measures
+// Create an empty table called _Measures (Enter data -> 1 blank column),
+// then paste each measure below into it (Modeling -> New measure).
+// Display folders are given in the comment above each block.
+// =====================================================================
+
+
+// ---------------------------------------------------------------------
+// Date table (Modeling -> New table). Mark as date table on 'Date'[Date].
+// ---------------------------------------------------------------------
+Date =
+VAR _start = DATE ( 2025, 10, 1 )
+VAR _end   = DATE ( 2026, 9, 30 )
+RETURN
+ADDCOLUMNS (
+    CALENDAR ( _start, _end ),
+    "Year", YEAR ( [Date] ),
+    "Month No", MONTH ( [Date] ),
+    "Month", FORMAT ( [Date], "MMM yyyy" ),
+    "Month Start", DATE ( YEAR ( [Date] ), MONTH ( [Date] ), 1 ),
+    "Week Start", [Date] - WEEKDAY ( [Date], 2 ) + 1,
+    "Weekday", FORMAT ( [Date], "ddd" ),
+    "Weekday No", WEEKDAY ( [Date], 2 ),
+    "Is Weekend", IF ( WEEKDAY ( [Date], 2 ) >= 6, "Weekend", "Weekday" ),
+    "Fiscal Quarter", "FY" & FORMAT ( IF ( MONTH ( [Date] ) >= 4, YEAR ( [Date] ) + 1, YEAR ( [Date] ) ) - 2000, "00" )
+        & " Q" & ( QUOTIENT ( MOD ( MONTH ( [Date] ) - 4, 12 ), 3 ) + 1 )   // Indian FY: Apr-Mar
+)
+// Sort 'Month' by 'Month Start' and 'Weekday' by 'Weekday No'.
+
+
+// ---------------------------------------------------------------------
+// Calculated columns on Orders (Orders table -> New column)
+// order_date and order_hour are added in Power Query (see power_query.m)
+// ---------------------------------------------------------------------
+Hour Band =
+SWITCH (
+    TRUE (),
+    Orders[order_hour] < 10, "1 Morning (6-10)",
+    Orders[order_hour] < 17, "2 Daytime (10-17)",
+    Orders[order_hour] < 23, "3 Evening rush (17-23)",
+    "4 Late night (23+)"
+)
+Delay Band =
+SWITCH (
+    TRUE (),
+    ISBLANK ( Orders[delivery_minutes] ), "Cancelled",
+    Orders[delivery_minutes] <= 10, "1 On time (<=10)",
+    Orders[delivery_minutes] <= 12, "2 10-12 min",
+    Orders[delivery_minutes] <= 15, "3 12-15 min",
+    Orders[delivery_minutes] <= 20, "4 15-20 min",
+    "5 20+ min"
+)
+Weather = IF ( Orders[is_rain_day] = 1, "Rain day", "Dry day" )
+
+// Customers table: cohort (signup) month
+Cohort Month = DATE ( YEAR ( Customers[signup_date] ), MONTH ( Customers[signup_date] ), 1 )
+
+// Orders table: months between the customer's signup and this order (0 = signup month)
+Months Since Signup = DATEDIFF ( RELATED ( Customers[Cohort Month] ), Orders[order_date], MONTH )
+
+
+// =====================================================================
+// Folder: 1 Volume
+// =====================================================================
+Total Orders = COUNTROWS ( Orders )
+
+Delivered Orders = CALCULATE ( [Total Orders], Orders[status] = "Delivered" )
+
+Cancelled Orders = CALCULATE ( [Total Orders], Orders[status] = "Cancelled" )
+
+Active Customers = DISTINCTCOUNT ( Orders[customer_id] )
+
+New Customers = CALCULATE ( [Total Orders], Orders[is_first_order] = 1 )
+
+Orders per Store per Day =
+DIVIDE (
+    [Total Orders],
+    SUMX (
+        VALUES ( Stores[store_id] ),
+        CALCULATE ( DISTINCTCOUNT ( Orders[order_date] ) )
+    )
+)
+
+
+// =====================================================================
+// Folder: 2 Revenue & Profit
+// =====================================================================
+GMV = SUM ( Orders[item_total] )                       // value of goods ordered
+
+Net Revenue = SUM ( Orders[net_revenue] )              // delivered only: items - discount + fees
+
+Discounts = CALCULATE ( SUM ( Orders[discount] ), Orders[status] = "Delivered" )
+
+Contribution = SUM ( Orders[contribution] )            // net revenue - COGS - rider payout
+
+Contribution Margin % = DIVIDE ( [Contribution], [Net Revenue] )
+
+Contribution per Order = DIVIDE ( [Contribution], [Delivered Orders] )
+
+AOV = DIVIDE ( [Net Revenue], [Delivered Orders] )
+
+Discount % of GMV = DIVIDE ( [Discounts], CALCULATE ( [GMV], Orders[status] = "Delivered" ) )
+
+Revenue per Customer = DIVIDE ( [Net Revenue], [Active Customers] )
+
+
+// =====================================================================
+// Folder: 3 Delivery & SLA
+// =====================================================================
+SLA Target (min) = SELECTEDVALUE ( 'SLA Target'[SLA Target], 10 )   // what-if parameter, 5-20, default 10
+
+Orders Within SLA =
+VAR _target = [SLA Target (min)]
+RETURN
+    CALCULATE (
+        [Total Orders],
+        Orders[status] = "Delivered",
+        Orders[delivery_minutes] <= _target
+    )
+
+SLA % = DIVIDE ( [Orders Within SLA], [Delivered Orders] )
+
+SLA Breaches = [Delivered Orders] - [Orders Within SLA]
+
+Avg Delivery Min = AVERAGE ( Orders[delivery_minutes] )      // blanks (cancelled) are ignored
+
+Median Delivery Min = MEDIAN ( Orders[delivery_minutes] )
+
+P90 Delivery Min = PERCENTILE.INC ( Orders[delivery_minutes], 0.9 )
+
+Cancellation Rate = DIVIDE ( [Cancelled Orders], [Total Orders] )
+
+Stockout Order Rate = DIVIDE ( CALCULATE ( [Total Orders], Orders[had_stockout] = 1 ), [Total Orders] )
+
+Avg Rating = AVERAGE ( Orders[rating] )
+
+Low Rating Share = DIVIDE ( CALCULATE ( COUNTROWS ( Orders ), Orders[rating] <= 2 ), COUNT ( Orders[rating] ) )
+
+Deliveries per Rider per Day =
+DIVIDE (
+    [Delivered Orders],
+    SUMX (
+        VALUES ( Orders[rider_id] ),
+        CALCULATE ( DISTINCTCOUNT ( Orders[order_date] ), Orders[status] = "Delivered" )
+    )
+)
+
+SLA % Rain Day = CALCULATE ( [SLA %], Orders[is_rain_day] = 1 )
+SLA % Dry Day  = CALCULATE ( [SLA %], Orders[is_rain_day] = 0 )
+Rain SLA Gap (pp) = ( [SLA % Dry Day] - [SLA % Rain Day] ) * 100
+
+// colour for conditional formatting (Format -> Data colors -> fx -> Field value)
+SLA Colour =
+SWITCH (
+    TRUE (),
+    ISBLANK ( [SLA %] ), BLANK (),
+    [SLA %] >= 0.6, "#2a78d6",
+    [SLA %] >= 0.45, "#eda100",
+    "#e34948"
+)
+
+
+// =====================================================================
+// Folder: 4 Time intelligence
+// =====================================================================
+Net Revenue PM = CALCULATE ( [Net Revenue], DATEADD ( 'Date'[Date], -1, MONTH ) )
+
+Net Revenue MoM % = DIVIDE ( [Net Revenue] - [Net Revenue PM], [Net Revenue PM] )
+
+Orders PM = CALCULATE ( [Total Orders], DATEADD ( 'Date'[Date], -1, MONTH ) )
+
+Orders MoM % = DIVIDE ( [Total Orders] - [Orders PM], [Orders PM] )
+
+Net Revenue MTD = TOTALMTD ( [Net Revenue], 'Date'[Date] )
+
+Net Revenue Running Total =
+CALCULATE (
+    [Net Revenue],
+    FILTER ( ALL ( 'Date'[Date] ), 'Date'[Date] <= MAX ( 'Date'[Date] ) )
+)
+
+Orders 7D Avg =
+AVERAGEX (
+    DATESINPERIOD ( 'Date'[Date], MAX ( 'Date'[Date] ), -7, DAY ),
+    [Total Orders]
+)
+
+SLA % 7D Avg =
+CALCULATE ( [SLA %], DATESINPERIOD ( 'Date'[Date], MAX ( 'Date'[Date] ), -7, DAY ) )
+
+Festival Uplift % =
+VAR _fest   = CALCULATE ( [Orders per Store per Day], Orders[festival] <> "No Festival" )
+VAR _normal = CALCULATE ( [Orders per Store per Day], Orders[festival] = "No Festival" )
+RETURN DIVIDE ( _fest - _normal, _normal )
+
+
+// =====================================================================
+// Folder: 5 Customers & Retention
+// =====================================================================
+Repeat Customers =
+COUNTROWS (
+    FILTER ( VALUES ( Orders[customer_id] ), CALCULATE ( COUNTROWS ( Orders ) ) > 1 )
+)
+
+Repeat Customer % = DIVIDE ( [Repeat Customers], [Active Customers] )
+
+Orders per Customer = DIVIDE ( [Total Orders], [Active Customers] )
+
+// Cohort matrix: rows = Customers[Cohort Month], columns = 'Cohort Age'[Month No]
+// 'Cohort Age' = SELECTCOLUMNS ( GENERATESERIES ( 0, 11, 1 ), "Month No", [Value] )   (Modeling -> New table)
+Cohort Customers = CALCULATE ( DISTINCTCOUNT ( Customers[customer_id] ), ALL ( 'Date' ) )
+
+Retained Customers =
+VAR _k = SELECTEDVALUE ( 'Cohort Age'[Month No] )
+RETURN
+    CALCULATE (
+        DISTINCTCOUNT ( Orders[customer_id] ),
+        ALL ( 'Date' ),
+        Orders[Months Since Signup] = _k
+    )
+
+Retention % = DIVIDE ( [Retained Customers], [Cohort Customers] )
+
+
+// =====================================================================
+// Folder: 6 Product (uses Order Items)
+// =====================================================================
+Units Sold =
+CALCULATE (
+    SUMX ( 'Order Items', 'Order Items'[quantity] ),
+    'Order Items'[fulfilled] = 1,
+    Orders[status] = "Delivered"
+)
+
+Item Revenue =
+CALCULATE (
+    SUMX ( 'Order Items', 'Order Items'[quantity] * 'Order Items'[mrp] ),
+    'Order Items'[fulfilled] = 1,
+    Orders[status] = "Delivered"
+)
+
+Item Gross Profit =
+CALCULATE (
+    SUMX ( 'Order Items', 'Order Items'[quantity] * ( 'Order Items'[mrp] - 'Order Items'[unit_cost] ) ),
+    'Order Items'[fulfilled] = 1,
+    Orders[status] = "Delivered"
+)
+
+Item Margin % = DIVIDE ( [Item Gross Profit], [Item Revenue] )
+
+Item Stockout Rate =
+1 - DIVIDE ( CALCULATE ( COUNTROWS ( 'Order Items' ), 'Order Items'[fulfilled] = 1 ), COUNTROWS ( 'Order Items' ) )
+
+Category Revenue Share =
+DIVIDE ( [Item Revenue], CALCULATE ( [Item Revenue], ALL ( Products[category] ) ) )
+
+Top N Value = SELECTEDVALUE ( 'Top N'[Top N], 10 )   // what-if parameter 5-25
+
+Product Rank = RANKX ( ALLSELECTED ( Products[product_name] ), [Item Revenue], , DESC, DENSE )
+
+Show in Top N = IF ( [Product Rank] <= [Top N Value], 1, 0 )   // visual-level filter = 1
+
+
+// =====================================================================
+// Folder: 7 Titles & labels (dynamic text)
+// =====================================================================
+Page Subtitle =
+VAR _stores = IF ( ISFILTERED ( Stores[store_name] ),
+                   CONCATENATEX ( VALUES ( Stores[store_name] ), Stores[store_name], ", " ),
+                   "All 8 dark stores" )
+RETURN _stores & "  |  " & FORMAT ( MIN ( 'Date'[Date] ), "d mmm yyyy" )
+              & " - " & FORMAT ( MAX ( 'Date'[Date] ), "d mmm yyyy" )
+
+SLA Headline =
+"Only " & FORMAT ( [SLA %], "0%" ) & " of orders met the " & [SLA Target (min)]
+    & "-minute promise; evening rush and rain days drive most breaches."

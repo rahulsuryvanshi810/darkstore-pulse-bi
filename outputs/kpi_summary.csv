@@ -1,0 +1,16 @@
+,value
+orders,97050.0
+delivered,92105.0
+customers,20436.0
+gmv,53943265.0
+net_revenue,49794506.0
+contribution,6285953.619999999
+aov,540.6276097931708
+cancel_rate,0.05095311695002576
+sla_rate,0.5413929754085012
+avg_minutes,10.648884425384072
+median_minutes,9.6
+avg_rating,4.119888817020087
+contribution_margin,0.12623789499990218
+repeat_customer_share,0.6998923468389118
+orders_from_repeat_customers,0.9368057702215353

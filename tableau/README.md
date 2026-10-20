@@ -1,0 +1,94 @@
+# Tableau workbook: DarkStore Pulse
+
+The Tableau version tells the story differently from the Power BI report: it focuses on **where and
+when** the 10-minute promise breaks (map, rush hour, monsoon), and ends in a 5-point **Story** for a
+city-operations review.
+
+| File | What it is |
+|---|---|
+| `darkstore_orders_flat.csv` | One row per order (97,050 rows), with store, zone, lat/long, acquisition channel and signup month already joined in |
+| `calculated_fields.md` | Every calculated field, LOD expression, table calculation and parameter, ready to paste |
+| `DarkStore_Pulse.twbx` | The packaged workbook (save it here after building) |
+| `screenshots/` | One PNG per dashboard |
+
+Works in **Tableau Public** (free) or Tableau Desktop. Build time: about 2 hours.
+
+---
+
+## 1. Connect
+
+1. **Connect → Text file →** `darkstore_orders_flat.csv`.
+2. Data types: `order_datetime` = Date & Time, `latitude`/`longitude` = Geographic role Latitude/Longitude,
+   `store_name` = String, `signup_month` = Date (format `yyyy-MM`).
+3. *(Optional, for product views)* add `../data/order_items.csv` and `../data/products.csv` as
+   **relationships**: flat `order_id` = order_items `order_id`; order_items `product_id` = products `product_id`.
+4. Create an **extract** (faster, and required by Tableau Public).
+
+## 2. Parameters
+
+| Parameter | Type | Values |
+|---|---|---|
+| `p.SLA Target` | Integer | Range 5 to 20, step 1, current 10 |
+| `p.Metric` | String | List: `Net Revenue`, `Orders`, `SLA %`, `Contribution Margin %` |
+| `p.Top N Stores` | Integer | Range 3 to 8, current 5 |
+
+Show all three as parameter controls on the dashboards.
+
+## 3. Calculated fields
+
+See `calculated_fields.md`. Create them in this order (later ones use earlier ones):
+basic flags → KPIs → LODs (cohort, city benchmark) → table calculations.
+
+## 4. Worksheets
+
+| # | Sheet | Build |
+|---|---|---|
+| 1 | **KPI BANs** | Measure Names on Text, filter to `Net Revenue`, `Total Orders`, `AOV`, `SLA %`, `Cancellation Rate`, `Avg Rating`; one big number each |
+| 2 | **Store map** | `Longitude` on Columns, `Latitude` on Rows (generated if you used the geographic role), `store_name` on Detail and Label, `Total Orders` on Size, `SLA %` on Colour (blue sequential, 5 steps); map layers: streets, washout 30% |
+| 3 | **Trend (metric switch)** | `MONTH(order_datetime)` continuous on Columns, `Selected Metric` on Rows, line 2px; reference line = average |
+| 4 | **Store vs city** | `store_name` on Rows sorted by `SLA %`; `SLA vs City (pp)` on Columns; colour by sign (above / below city) |
+| 5 | **Rush-hour heatmap** | `Order Hour` on Columns, `WEEKDAY(order_datetime)` on Rows, Mark = Square, `SLA %` on Colour, `Delivered Orders` on Tooltip |
+| 6 | **Monsoon dumbbell** | `store_name` on Rows, `SLA %` on Columns, `Weather` on Colour and Path, Mark = Line + dual-axis circle (same scale, synchronised) |
+| 7 | **Ratings vs delay** | `Delay Band` on Columns, `Avg Rating` on Rows (bars), `Low Rating Share` in Tooltip |
+| 8 | **Cohort retention** | `Signup Month` (discrete month) on Rows, `Months Since Signup` on Columns, `Retention %` on Colour + Text, Mark = Square |
+| 9 | **Channel value** | `acquisition_channel` on Rows, `Orders per Customer` on Columns, `Revenue per Customer` on Label |
+| 10 | **Festival lift** | `festival` on Rows (exclude No Festival), `Festival Lift %` on Columns |
+| 11 | **Hourly demand curve** | `Order Hour` on Columns, `Total Orders` on Rows, area chart, `Hour Band` on Colour |
+| 12 | **Cancellation reasons** | `cancel_reason` on Rows, `Total Orders` on Columns, `% of total` quick table calc |
+
+Tooltips: write them as sentences, e.g.
+`<store_name>: <SLA %> of orders on time (city <City SLA %>), avg <Avg Delivery Min> min`.
+
+## 5. Dashboards (1366 × 768, tiled layout)
+
+**D1 · City Command Center**: KPI BANs across the top · Store map (left, large) · Trend with `p.Metric`
+control · Store vs city bars.
+*Actions:* clicking a store on the map filters the trend and bars (Filter action, "Run on: Select");
+hover highlights the store everywhere (Highlight action on `store_name`).
+
+**D2 · Rush Hour & Monsoon**: Rush-hour heatmap · Monsoon dumbbell · Ratings vs delay · Hourly demand curve.
+`p.SLA Target` slider on top; changing it recolours every SLA chart.
+*Action:* selecting cells in the heatmap filters the ratings chart (what do customers rate those hours?).
+
+**D3 · Customer Loyalty**: Cohort retention · Channel value · Festival lift · Cancellation reasons.
+*Action:* a **Set action** on the channel chart puts the selected channel in a set (`Selected Channel`)
+and the cohort triangle switches to show only those customers.
+
+Add a title bar (text object), a one-line takeaway under each chart, and a navigation button row.
+
+## 6. Story (5 story points)
+
+| Point | Caption (the insight) | Sheet / dashboard |
+|---|---|---|
+| 1 | "Monthly net revenue grew 3.2× in 12 months (₹19.4 L to ₹62.8 L) as 2 new stores opened" | Trend |
+| 2 | "Only 54% of orders meet the 10-minute promise; Hinjewadi meets just 30%" | Store vs city |
+| 3 | "Evening rush (6-11 pm) and rain days are where promises break" | D2 |
+| 4 | "Each late minute costs ratings: 20+ min orders average 1.7 stars" | Ratings vs delay |
+| 5 | "Half of new customers return next month, but paid-ads users order 39% less" | D3 |
+
+## 7. Save & publish
+
+1. **File → Save to Tableau Public** (sign in with a free account). Copy the public URL into the main README.
+2. Also **File → Export Packaged Workbook** → `tableau/DarkStore_Pulse.twbx`.
+3. Screenshots of each dashboard → `tableau/screenshots/`.
+4. Check: Total Orders 97,050, SLA % 54.1%, Net Revenue ₹4.98 Cr (must match `../outputs/kpi_summary.csv`).

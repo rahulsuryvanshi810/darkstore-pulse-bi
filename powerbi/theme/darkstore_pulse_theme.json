@@ -1,0 +1,56 @@
+{
+  "name": "DarkStore Pulse",
+  "dataColors": [
+    "#2a78d6", "#eb6834", "#1baf7a", "#eda100",
+    "#e87ba4", "#008300", "#6250d6", "#e34948"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#0B0B0B",
+  "tableAccent": "#2a78d6",
+  "good": "#1baf7a",
+  "neutral": "#eda100",
+  "bad": "#e34948",
+  "maximum": "#104281",
+  "center": "#86b6ef",
+  "minimum": "#cde2fb",
+  "textClasses": {
+    "title":   { "fontFace": "Segoe UI Semibold", "fontSize": 12, "color": "#0B0B0B" },
+    "header":  { "fontFace": "Segoe UI Semibold", "fontSize": 11, "color": "#0B0B0B" },
+    "label":   { "fontFace": "Segoe UI", "fontSize": 10, "color": "#52514E" },
+    "callout": { "fontFace": "Segoe UI Semibold", "fontSize": 26, "color": "#0B0B0B" }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [{ "show": true, "color": { "solid": { "color": "#FFFFFF" } }, "transparency": 0 }],
+        "border": [{ "show": true, "color": { "solid": { "color": "#E6E5E1" } }, "radius": 8 }],
+        "dropShadow": [{ "show": false }],
+        "padding": [{ "top": 10, "bottom": 10, "left": 12, "right": 12 }],
+        "title": [{ "show": true, "fontColor": { "solid": { "color": "#0B0B0B" } }, "fontSize": 12, "alignment": "left" }],
+        "valueAxis": [{ "gridlineColor": { "solid": { "color": "#ECEBE8" } }, "gridlineThickness": 1 }],
+        "categoryAxis": [{ "gridlineShow": false }]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#F4F3F0" } }, "transparency": 0 }],
+        "outspace": [{ "color": { "solid": { "color": "#F4F3F0" } } }]
+      }
+    },
+    "card": {
+      "*": {
+        "labels": [{ "color": { "solid": { "color": "#0B0B0B" } }, "fontSize": 26 }],
+        "categoryLabels": [{ "color": { "solid": { "color": "#52514E" } }, "fontSize": 10 }]
+      }
+    },
+    "lineChart": {
+      "*": { "lineStyles": [{ "strokeWidth": 2 }] }
+    },
+    "slicer": {
+      "*": {
+        "border": [{ "show": false }],
+        "header": [{ "fontColor": { "solid": { "color": "#52514E" } }, "textSize": 9 }]
+      }
+    }
+  }
+}
