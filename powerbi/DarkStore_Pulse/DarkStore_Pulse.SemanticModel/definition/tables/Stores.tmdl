@@ -1,35 +1,35 @@
 table 'Stores'
-	lineageTag: 4015ca64-3d42-4c9e-bafe-7d9d94e4ea17
+	lineageTag: 988c24c9-61b1-4d22-a280-1c4510435a10
 
 	column 'store_id'
 		dataType: string
 		isHidden
-		lineageTag: 9ea4c96c-5aad-41bd-b922-604c70089fbd
+		lineageTag: 405cacec-8774-49a9-b7d2-1e02ff01cf99
 		summarizeBy: none
 		sourceColumn: store_id
 
 	column 'store_name'
 		dataType: string
-		lineageTag: b0bdddbe-a8c6-40d1-a3e7-b50b9d73fae7
+		lineageTag: f143262f-dc5c-4eed-8da0-365bf89897b9
 		summarizeBy: none
 		sourceColumn: store_name
 
 	column 'zone'
 		dataType: string
-		lineageTag: 42407114-ad52-4221-92db-3b4c3cae1f32
+		lineageTag: 1d53434b-b881-49b9-ae27-0da702f06b90
 		summarizeBy: none
 		sourceColumn: zone
 
 	column 'latitude'
 		dataType: double
-		lineageTag: da6108f2-2769-43bc-8a42-0773ef09050c
+		lineageTag: c0398710-8976-4334-a281-7efdae849217
 		dataCategory: Latitude
 		summarizeBy: none
 		sourceColumn: latitude
 
 	column 'longitude'
 		dataType: double
-		lineageTag: 7aa0b061-ff43-4158-b076-5fa4742b4aa8
+		lineageTag: 5715bd6f-a416-4293-84c2-e2e3444ea7c8
 		dataCategory: Longitude
 		summarizeBy: none
 		sourceColumn: longitude
@@ -37,20 +37,20 @@ table 'Stores'
 	column 'open_date'
 		dataType: dateTime
 		formatString: d mmm yyyy
-		lineageTag: 7491f87d-af87-481e-b8ab-637d3da34034
+		lineageTag: 287d06ca-6f4c-469a-8b22-d3081c8eaee9
 		summarizeBy: none
 		sourceColumn: open_date
 
 	column 'riders'
 		dataType: int64
 		formatString: 0
-		lineageTag: 55109775-2301-4296-acac-d1302c0a8c34
+		lineageTag: b8db0672-f42d-47cc-80d4-af5974273ca3
 		summarizeBy: none
 		sourceColumn: riders
 
 	column 'city'
 		dataType: string
-		lineageTag: f1165d22-32d6-498b-bf6b-6a2e752f319e
+		lineageTag: f8cda88b-436d-46e2-b83c-fe0be037e5ed
 		dataCategory: City
 		summarizeBy: none
 		sourceColumn: city
@@ -58,13 +58,13 @@ table 'Stores'
 	column 'sla_minutes'
 		dataType: int64
 		formatString: 0
-		lineageTag: c3ca2048-bf13-4edc-8fe5-33c9062391db
+		lineageTag: 81f76d1c-2dbc-4134-830f-f46e8026695f
 		summarizeBy: none
 		sourceColumn: sla_minutes
 
 	column 'location'
 		dataType: string
-		lineageTag: c99499f2-e95a-40c3-8c42-7a9735a689f3
+		lineageTag: a013ac6e-deda-4e16-9b3d-bd5ce9a1fa6f
 		dataCategory: Place
 		summarizeBy: none
 		sourceColumn: location

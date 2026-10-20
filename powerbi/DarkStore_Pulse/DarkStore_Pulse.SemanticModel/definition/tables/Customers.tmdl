@@ -1,30 +1,30 @@
 table 'Customers'
-	lineageTag: 4fe9c10f-ad69-408d-a498-e6857e845490
+	lineageTag: 14296c07-f26b-4776-913e-4de2e0c53cb8
 
 	column 'customer_id'
 		dataType: string
 		isHidden
-		lineageTag: 05606d4d-5af3-4371-bb58-acb906451c60
+		lineageTag: d0e6e660-7c69-4ee1-bb5e-4bcf15ed6269
 		summarizeBy: none
 		sourceColumn: customer_id
 
 	column 'home_store_id'
 		dataType: string
 		isHidden
-		lineageTag: adb4167c-efd3-4243-a531-b66d1c851679
+		lineageTag: 885f6e66-c2b6-42c5-ba5d-310011b7e948
 		summarizeBy: none
 		sourceColumn: home_store_id
 
 	column 'signup_date'
 		dataType: dateTime
 		formatString: d mmm yyyy
-		lineageTag: e26f2287-ce89-416a-a20a-50a5229d6d1d
+		lineageTag: a8e56e0c-20de-435d-a031-d750c40db9b4
 		summarizeBy: none
 		sourceColumn: signup_date
 
 	column 'acquisition_channel'
 		dataType: string
-		lineageTag: fe751f87-3743-41e4-a9c6-4e3180ecae3e
+		lineageTag: 2a45c2ab-8cbf-4db0-b264-accc79ac1b1e
 		summarizeBy: none
 		sourceColumn: acquisition_channel
 
@@ -32,7 +32,7 @@ table 'Customers'
 			DATE ( YEAR ( Customers[signup_date] ), MONTH ( Customers[signup_date] ), 1 )
 		dataType: dateTime
 		formatString: mmm yyyy
-		lineageTag: f19d50ef-40a9-493d-a045-fb8bf20db8e4
+		lineageTag: 9b49bd26-df57-459a-8715-a10343dac043
 		summarizeBy: none
 
 	partition 'Customers' = m

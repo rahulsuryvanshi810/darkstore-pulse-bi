@@ -8,6 +8,7 @@ Outputs
     tableau/DarkStore_Pulse.twb                                             -> open in Tableau Desktop / Public
 """
 import json
+import random
 import re
 import shutil
 import uuid
@@ -25,8 +26,11 @@ def q(name):
     return "'" + name.replace("'", "''") + "'"
 
 
+RNG = random.Random(42)  # fixed seed: rebuilding gives the same lineage tags, so git diffs stay small
+
+
 def tag():
-    return str(uuid.uuid4())
+    return str(uuid.UUID(int=RNG.getrandbits(128), version=4))
 
 
 def indent(text, n):
@@ -64,7 +68,7 @@ def fmt(name):
     n = name.lower()
     if name in ("SLA Colour", "Page Subtitle", "SLA Headline"):
         return None
-    if "%" in name:
+    if "%" in name or n.endswith(" rate") or n.endswith(" share"):
         return "0.0%"
     if "(pp)" in n:
         return "0.0"
@@ -466,7 +470,7 @@ def build_twb():
               "            <view>", "              <breakdown value='auto' />", "            </view>",
               "            <mark class='Automatic' />", "          </pane>", "        </panes>",
               "        <rows />", "        <cols />", "      </table>",
-              f"      <simple-id uuid='{{{str(uuid.uuid4()).upper()}}}' />", "    </worksheet>"]
+              f"      <simple-id uuid='{{{tag().upper()}}}' />", "    </worksheet>"]
     x += ["  </worksheets>", "</workbook>", ""]
     (TAB / f"{NAME}.twb").write_text("\n".join(x), encoding="utf-8")
     return len(calcs)

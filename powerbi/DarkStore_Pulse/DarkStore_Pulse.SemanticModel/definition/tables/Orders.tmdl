@@ -1,188 +1,188 @@
 table 'Orders'
-	lineageTag: 54966e23-a6e9-45bc-81c9-e3df815e946f
+	lineageTag: 47378190-96da-4dac-b2ff-5d2a386ecbe0
 
 	column 'order_id'
 		dataType: string
 		isHidden
-		lineageTag: 8242b9c3-ced1-4113-86d4-bd71b442a8c2
+		lineageTag: c241330b-01a9-471f-9e8a-774bcf36d58b
 		summarizeBy: none
 		sourceColumn: order_id
 
 	column 'order_datetime'
 		dataType: dateTime
 		formatString: d mmm yyyy hh:mm
-		lineageTag: d96f29b3-9c30-4db3-9f66-b8e62de0d927
+		lineageTag: 6c307511-b2b9-437a-a8df-6ec4ce4a2bbd
 		summarizeBy: none
 		sourceColumn: order_datetime
 
 	column 'store_id'
 		dataType: string
 		isHidden
-		lineageTag: 574c96d0-a695-4777-8567-99aa7640ee38
+		lineageTag: 371ecd7b-27cd-4130-8722-9389571aa876
 		summarizeBy: none
 		sourceColumn: store_id
 
 	column 'customer_id'
 		dataType: string
 		isHidden
-		lineageTag: d93b5fe1-841d-41d4-b0a6-7bea119729fd
+		lineageTag: 1a2a73ed-562b-4f79-8374-59eef50bea63
 		summarizeBy: none
 		sourceColumn: customer_id
 
 	column 'rider_id'
 		dataType: string
 		isHidden
-		lineageTag: 8c44f5ad-fabf-4869-8a4c-9bf22fbee17e
+		lineageTag: 5be6128e-18c2-4797-a142-ea7d17be3111
 		summarizeBy: none
 		sourceColumn: rider_id
 
 	column 'status'
 		dataType: string
-		lineageTag: 92121e28-9704-49b8-8753-54aba8345798
+		lineageTag: 43b7a3a6-9a8d-4a03-980d-7b71d8f56413
 		summarizeBy: none
 		sourceColumn: status
 
 	column 'cancel_reason'
 		dataType: string
-		lineageTag: da0906a3-2a73-4d9f-8961-17c7babd6e19
+		lineageTag: 759cde66-bacf-43d0-8b1f-9163ce9ff57f
 		summarizeBy: none
 		sourceColumn: cancel_reason
 
 	column 'payment_method'
 		dataType: string
-		lineageTag: 930d8ea8-344a-407b-bda0-8d83e56b63ee
+		lineageTag: ec1b8ca1-f91e-4d4c-9ff4-9b7889463e85
 		summarizeBy: none
 		sourceColumn: payment_method
 
 	column 'is_first_order'
 		dataType: int64
 		formatString: 0
-		lineageTag: 5e742208-a6f8-4917-82a8-a23053b062cf
+		lineageTag: 4b0dbb41-8d52-48f1-942c-3fe860e7a113
 		summarizeBy: none
 		sourceColumn: is_first_order
 
 	column 'coupon_used'
 		dataType: int64
 		formatString: 0
-		lineageTag: df13e1dc-9355-44fe-a182-a84d6992cc7f
+		lineageTag: e2acf72f-9e57-4f7a-a0ee-89aed453dd32
 		summarizeBy: none
 		sourceColumn: coupon_used
 
 	column 'is_rain_day'
 		dataType: int64
 		formatString: 0
-		lineageTag: cc44595e-f550-4366-8529-58f714d96526
+		lineageTag: 3139d32c-93cd-49bf-9c94-1cf0dc98d2c1
 		summarizeBy: none
 		sourceColumn: is_rain_day
 
 	column 'festival'
 		dataType: string
-		lineageTag: 1a05cd7b-2dba-405c-9023-501531cf5385
+		lineageTag: a9488d99-0bbb-4599-91ce-5dd2b45ed1f0
 		summarizeBy: none
 		sourceColumn: festival
 
 	column 'items_count'
 		dataType: int64
 		formatString: 0
-		lineageTag: bac4f9dd-e73b-446d-b5f9-a9c42a7d2274
+		lineageTag: fc377a4c-4a15-444d-85e7-ce8a3a578a8e
 		summarizeBy: none
 		sourceColumn: items_count
 
 	column 'item_total'
 		dataType: decimal
 		formatString: ₹#,0.00
-		lineageTag: 485fead2-301e-4f91-9e40-934c827e260c
+		lineageTag: ddd1dfb2-3b98-4ef8-9af6-1a26146d3f31
 		summarizeBy: sum
 		sourceColumn: item_total
 
 	column 'discount'
 		dataType: decimal
 		formatString: ₹#,0.00
-		lineageTag: d94ff568-f5a1-43e3-80f8-ad9efa7bb2b0
+		lineageTag: 7412b293-4729-4739-a14f-f3d719db3ad0
 		summarizeBy: sum
 		sourceColumn: discount
 
 	column 'delivery_fee'
 		dataType: decimal
 		formatString: ₹#,0.00
-		lineageTag: b9e03263-0167-4935-8765-463692d6f48b
+		lineageTag: 29a3b2e9-5d65-4441-9588-42dea2bc372f
 		summarizeBy: sum
 		sourceColumn: delivery_fee
 
 	column 'cogs'
 		dataType: decimal
 		formatString: ₹#,0.00
-		lineageTag: fbe9ee32-bd26-4a3f-a991-0c1370cbd053
+		lineageTag: ab9099a4-35a2-40ae-9af3-05535ec42e08
 		summarizeBy: sum
 		sourceColumn: cogs
 
 	column 'rider_cost'
 		dataType: decimal
 		formatString: ₹#,0.00
-		lineageTag: 13a394ff-03ee-428c-9179-2bae9cd56be9
+		lineageTag: aefcfad8-efc8-4849-b3aa-7efe4458a885
 		summarizeBy: sum
 		sourceColumn: rider_cost
 
 	column 'distance_km'
 		dataType: double
 		formatString: 0.00
-		lineageTag: 554f1612-f912-4324-afd7-46e23ba74fb5
+		lineageTag: a28defe3-9bf0-4273-9247-6f57a5e5a5ab
 		summarizeBy: sum
 		sourceColumn: distance_km
 
 	column 'delivery_minutes'
 		dataType: double
 		formatString: 0.00
-		lineageTag: 213f9ec7-95e4-42ef-a15d-1b9401376ffb
+		lineageTag: 3eabedcb-baa8-4dd4-88bd-64072bcfbe01
 		summarizeBy: sum
 		sourceColumn: delivery_minutes
 
 	column 'rating'
 		dataType: int64
 		formatString: 0
-		lineageTag: 1d64a853-daa6-406d-953f-c58c22dde8b4
+		lineageTag: 451b4cf3-6123-4df7-b656-af7229d4beef
 		summarizeBy: none
 		sourceColumn: rating
 
 	column 'had_stockout'
 		dataType: int64
 		formatString: 0
-		lineageTag: 77fc6409-54dd-4751-8934-7fb917d4328c
+		lineageTag: b02b61c4-a3d7-4628-ace6-6fa2fd5166e6
 		summarizeBy: none
 		sourceColumn: had_stockout
 
 	column 'sla_met'
 		dataType: int64
 		formatString: 0
-		lineageTag: 2e0e5564-3143-4cd7-a52c-0b8dcb6bd300
+		lineageTag: 5304317f-af42-412f-b838-b3268e944239
 		summarizeBy: none
 		sourceColumn: sla_met
 
 	column 'net_revenue'
 		dataType: decimal
 		formatString: ₹#,0.00
-		lineageTag: d49f1cb4-25ed-4b6a-9197-553ab84e8446
+		lineageTag: 0e51f30d-c6a7-4e39-84b0-32ccd7c524a5
 		summarizeBy: sum
 		sourceColumn: net_revenue
 
 	column 'contribution'
 		dataType: decimal
 		formatString: ₹#,0.00
-		lineageTag: 4d124626-65dd-4ce6-a12b-db351528fc26
+		lineageTag: ce177b4e-0837-48a3-9261-a7ab3aa2e4f9
 		summarizeBy: sum
 		sourceColumn: contribution
 
 	column 'order_date'
 		dataType: dateTime
 		formatString: d mmm yyyy
-		lineageTag: 14f71d3b-7d15-443c-8b99-df0a4fcfc24b
+		lineageTag: 10f1bc81-448a-4a9e-a6b2-bc5b50c187fc
 		summarizeBy: none
 		sourceColumn: order_date
 
 	column 'order_hour'
 		dataType: int64
 		formatString: 0
-		lineageTag: 9f534c51-d7bb-45ae-a229-39ff7dc7909d
+		lineageTag: 9132b63e-f162-47e4-a9c3-49e03602f8ac
 		summarizeBy: none
 		sourceColumn: order_hour
 
@@ -195,7 +195,7 @@ table 'Orders'
 				"4 Late night (23+)"
 			)
 		dataType: string
-		lineageTag: df163539-6c2a-484e-a135-3ac52c458182
+		lineageTag: 366eb16f-508e-4ad7-b7c9-3acfe059a0ee
 		summarizeBy: none
 
 	column 'Delay Band' =
@@ -209,20 +209,20 @@ table 'Orders'
 				"5 20+ min"
 			)
 		dataType: string
-		lineageTag: d9629787-b2de-419e-a9cb-e7379a4e2a98
+		lineageTag: e27a984d-6548-41d0-bfcd-9eb1a7cad415
 		summarizeBy: none
 
 	column 'Weather' =
 			IF ( Orders[is_rain_day] = 1, "Rain day", "Dry day" )
 		dataType: string
-		lineageTag: 68b052b1-843f-4fc8-a59f-228dcfd64a7c
+		lineageTag: 24933b83-7577-40a9-a491-f0b2ea1fca65
 		summarizeBy: none
 
 	column 'Months Since Signup' =
 			DATEDIFF ( RELATED ( Customers[Cohort Month] ), Orders[order_date], MONTH )
 		dataType: int64
 		formatString: 0
-		lineageTag: aef0674f-08fb-49cf-9fe0-1f627c5b5504
+		lineageTag: beb79919-3f22-4af8-a3be-d01d43cf2fde
 		summarizeBy: none
 
 	partition 'Orders' = m

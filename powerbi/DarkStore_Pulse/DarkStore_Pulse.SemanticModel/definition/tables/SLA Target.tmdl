@@ -1,10 +1,10 @@
 table 'SLA Target'
-	lineageTag: 67d5d79c-78d6-4c45-9d02-159d1f7c9578
+	lineageTag: 1825bc54-30be-445f-a835-14f2ceb81f9d
 
 	column 'SLA Target'
 		dataType: int64
 		formatString: 0
-		lineageTag: 854678e9-4740-431b-9c60-545e6ff30b71
+		lineageTag: 5ab33edf-6e59-4ed3-a8b3-17fa18d0752b
 		summarizeBy: none
 		sourceColumn: [Value]
 

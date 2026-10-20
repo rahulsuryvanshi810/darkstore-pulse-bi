@@ -1,30 +1,30 @@
 table 'Riders'
-	lineageTag: 1ae8177a-0022-47dc-863e-205c3f35310b
+	lineageTag: edcd465e-3638-4821-b6e0-7cc06c52c49f
 
 	column 'rider_id'
 		dataType: string
 		isHidden
-		lineageTag: 8e0dcd4d-43a0-4a65-874e-c06fba440703
+		lineageTag: b09b2a5c-badc-432a-8159-0f538a0f4efb
 		summarizeBy: none
 		sourceColumn: rider_id
 
 	column 'store_id'
 		dataType: string
 		isHidden
-		lineageTag: 7362fd24-7bc5-427c-8f22-1b6a680f895e
+		lineageTag: 66245bfa-4fcc-439a-b683-d2e6337ea2df
 		summarizeBy: none
 		sourceColumn: store_id
 
 	column 'vehicle_type'
 		dataType: string
-		lineageTag: d8cb3638-d06b-42fa-96f0-274361511f4c
+		lineageTag: 5f987c71-a65e-488e-abf3-ad39fec21bbe
 		summarizeBy: none
 		sourceColumn: vehicle_type
 
 	column 'join_date'
 		dataType: dateTime
 		formatString: d mmm yyyy
-		lineageTag: 09f7c41b-8fad-4470-be77-b877ebcb3e75
+		lineageTag: 7394988f-847f-49b4-a64d-1bcb702753a1
 		summarizeBy: none
 		sourceColumn: join_date
 
