@@ -1,3 +1,5 @@
 expression DataFolder = "C:\Users\Rahul\projects\GitHub-Projects\darkstore-pulse-bi\data\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
-	lineageTag: bdd640fb-0667-4ad1-9c80-317fa3b1799d
+	lineageTag: 65de7d88-8637-493b-8079-fb13eb1eabab
+
+	annotation PBI_ResultType = Text
 

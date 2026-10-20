@@ -1,0 +1,165 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 857.61098472729793,
+            "y": 437.71569493906543
+          },
+          "nodeIndex": "_Measures",
+          "nodeLineageTag": "be307cf9-e127-40b2-8755-866d9c2f6945",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1141.6109847272978,
+            "y": 487.71569493906543
+          },
+          "nodeIndex": "Cohort Age",
+          "nodeLineageTag": "e66a3b98-dc27-4af0-bf9e-4373ad2e3428",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 729.52125459837828
+          },
+          "nodeIndex": "Customers",
+          "nodeLineageTag": "1ed86cc7-1c85-4b15-97e7-0edac701bcd4",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 623.610984727298,
+            "y": 306.74469864571665
+          },
+          "nodeIndex": "Date",
+          "nodeLineageTag": "aa20e007-2374-43b6-8259-031294ca5c55",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 197.26113111928476,
+            "y": 186.90977358260056
+          },
+          "nodeIndex": "Order Items",
+          "nodeLineageTag": "351f2b0e-707b-432a-915f-f2d45a0fb9c7",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 336.56181550401425,
+            "y": 464.30429794557682
+          },
+          "nodeIndex": "Orders",
+          "nodeLineageTag": "81c6b451-a707-446d-99c8-d80dcf397f12",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 482.63838312046471,
+            "y": -50
+          },
+          "nodeIndex": "Products",
+          "nodeLineageTag": "b5fe58c6-db26-477b-b6e2-5f67c95a280c",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 621.17516931571708,
+            "y": 817.34907456642566
+          },
+          "nodeIndex": "Riders",
+          "nodeLineageTag": "16b4cd03-015e-4030-bfbb-de7fdcb744f4",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1425.6109847272978,
+            "y": 487.71569493906543
+          },
+          "nodeIndex": "SLA Target",
+          "nodeLineageTag": "243ae3f7-a2cb-40a8-828e-4d554b22c0c6",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 334.63793173532787,
+            "y": 825.43138987813086
+          },
+          "nodeIndex": "Stores",
+          "nodeLineageTag": "5a7c8a22-d416-496a-8085-c4343da4c91f",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1709.6109847272978,
+            "y": 487.71569493906543
+          },
+          "nodeIndex": "Top N",
+          "nodeLineageTag": "564d7f5c-60f6-4dc0-9409-5f770ba27c2e",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

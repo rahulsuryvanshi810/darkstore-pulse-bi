@@ -1,41 +1,52 @@
-table 'Customers'
-	lineageTag: 14296c07-f26b-4776-913e-4de2e0c53cb8
+table Customers
+	lineageTag: 1ed86cc7-1c85-4b15-97e7-0edac701bcd4
 
-	column 'customer_id'
+	column customer_id
 		dataType: string
 		isHidden
-		lineageTag: d0e6e660-7c69-4ee1-bb5e-4bcf15ed6269
+		lineageTag: ac1b0287-db8e-4619-8055-6eb4f4f7f994
 		summarizeBy: none
 		sourceColumn: customer_id
 
-	column 'home_store_id'
+	column home_store_id
 		dataType: string
 		isHidden
-		lineageTag: 885f6e66-c2b6-42c5-ba5d-310011b7e948
+		lineageTag: a4e3d89b-c5a5-47b9-ac91-ee08a070621f
 		summarizeBy: none
 		sourceColumn: home_store_id
 
-	column 'signup_date'
+	column signup_date
 		dataType: dateTime
 		formatString: d mmm yyyy
-		lineageTag: a8e56e0c-20de-435d-a031-d750c40db9b4
+		lineageTag: 0aee77be-6e53-4ac9-8fd8-1557d3a054c5
 		summarizeBy: none
 		sourceColumn: signup_date
 
-	column 'acquisition_channel'
+		variation Variation
+			isDefault
+			relationship: a0828ee2-56eb-4510-9d08-8c7205838328
+			defaultHierarchy: LocalDateTable_10d5fc1a-138f-4b88-b70f-2f85c20936bc.'Date Hierarchy'
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column acquisition_channel
 		dataType: string
-		lineageTag: 2a45c2ab-8cbf-4db0-b264-accc79ac1b1e
+		lineageTag: 8cc3b409-71a3-41cb-a0fa-b244f3486feb
 		summarizeBy: none
 		sourceColumn: acquisition_channel
 
-	column 'Cohort Month' =
-			DATE ( YEAR ( Customers[signup_date] ), MONTH ( Customers[signup_date] ), 1 )
+	column 'Cohort Month' = DATE ( YEAR ( Customers[signup_date] ), MONTH ( Customers[signup_date] ), 1 )
 		dataType: dateTime
 		formatString: mmm yyyy
-		lineageTag: 9b49bd26-df57-459a-8715-a10343dac043
+		lineageTag: 2227f45b-0c71-4854-a577-02d17f1eda85
 		summarizeBy: none
 
-	partition 'Customers' = m
+		variation Variation
+			isDefault
+			relationship: c39051b8-db4f-4301-9559-caf772eff821
+			defaultHierarchy: LocalDateTable_3dff3599-11c2-4611-a245-9adc1fa54529.'Date Hierarchy'
+
+	partition Customers = m
 		mode: import
 		source =
 				let

@@ -6,17 +6,27 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-ref table '_Measures'
-ref table 'Orders'
+annotation PBI_ProTooling = ["DevMode"]
+
+annotation PBI_QueryOrder = ["Orders","Order Items","Stores","Products","Customers","Riders","DataFolder"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+ref table _Measures
+ref table Orders
 ref table 'Order Items'
-ref table 'Stores'
-ref table 'Products'
-ref table 'Customers'
-ref table 'Riders'
-ref table 'Date'
+ref table Stores
+ref table Products
+ref table Customers
+ref table Riders
+ref table Date
 ref table 'SLA Target'
 ref table 'Top N'
 ref table 'Cohort Age'
-
-ref expression DataFolder
+ref table DateTableTemplate_604047bd-61a2-4bf7-9ca6-a303da72565a
+ref table LocalDateTable_b9af5e61-6ba6-4c59-bcc4-6523ea1b7e94
+ref table LocalDateTable_e5411570-6ed4-41f4-beed-1d55b4faa84a
+ref table LocalDateTable_10d5fc1a-138f-4b88-b70f-2f85c20936bc
+ref table LocalDateTable_3dff3599-11c2-4611-a245-9adc1fa54529
+ref table LocalDateTable_3395192b-15df-470c-bf42-94cd01370b5a
 

@@ -1,53 +1,53 @@
-table 'Products'
-	lineageTag: 81f631d4-a392-41a7-9777-a4774c66e0a8
+table Products
+	lineageTag: b5fe58c6-db26-477b-b6e2-5f67c95a280c
 
-	column 'product_id'
+	column product_id
 		dataType: string
 		isHidden
-		lineageTag: 5fb8d16c-2720-497d-b2eb-d6899be578c7
+		lineageTag: 75a802a2-0bb2-4a9d-b12f-391121bfd6ac
 		summarizeBy: none
 		sourceColumn: product_id
 
-	column 'category'
+	column category
 		dataType: string
-		lineageTag: f4188f3f-8a14-4e62-a95b-4715c333e861
+		lineageTag: 0fc29145-b717-4296-b686-c4d5ed457749
 		summarizeBy: none
 		sourceColumn: category
 
-	column 'product_name'
+	column product_name
 		dataType: string
-		lineageTag: eb2263dd-87c5-421e-ac24-a3c5c754108f
+		lineageTag: 431651ea-5902-4013-bb31-94e9ee8fe894
 		summarizeBy: none
 		sourceColumn: product_name
 
-	column 'mrp'
+	column mrp
 		dataType: decimal
 		formatString: ₹#,0.00
-		lineageTag: 7d154385-52fb-443b-9954-6eb400257ad1
+		lineageTag: 85df6b10-e104-42ee-acd8-7c795fb8d283
 		summarizeBy: sum
 		sourceColumn: mrp
 
-	column 'unit_cost'
+	column unit_cost
 		dataType: decimal
 		formatString: ₹#,0.00
-		lineageTag: 5cec4eb5-edd9-4831-9ca3-5cfb04fc6d82
+		lineageTag: 061f253e-b65e-452a-99e4-69075dcca4fb
 		summarizeBy: sum
 		sourceColumn: unit_cost
 
-	column 'shelf_life'
+	column shelf_life
 		dataType: string
-		lineageTag: ce88cb2d-d4e8-4839-bc3e-058be0f3eab0
+		lineageTag: 0ab103fc-6299-4ea1-acab-237c01b7d056
 		summarizeBy: none
 		sourceColumn: shelf_life
 
-	column 'margin_pct'
+	column margin_pct
 		dataType: double
 		formatString: 0.0%
-		lineageTag: 3da9c2a9-0ed4-4f1a-bd4c-bf374eb93eff
+		lineageTag: 99f05add-83f7-4280-9ffa-60770880ff8c
 		summarizeBy: sum
 		sourceColumn: margin_pct
 
-	partition 'Products' = m
+	partition Products = m
 		mode: import
 		source =
 				let

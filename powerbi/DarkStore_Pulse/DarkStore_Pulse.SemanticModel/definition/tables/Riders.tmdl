@@ -1,34 +1,41 @@
-table 'Riders'
-	lineageTag: edcd465e-3638-4821-b6e0-7cc06c52c49f
+table Riders
+	lineageTag: 16b4cd03-015e-4030-bfbb-de7fdcb744f4
 
-	column 'rider_id'
+	column rider_id
 		dataType: string
 		isHidden
-		lineageTag: b09b2a5c-badc-432a-8159-0f538a0f4efb
+		lineageTag: c487c88d-a760-4b29-bbd1-362bfcdd5409
 		summarizeBy: none
 		sourceColumn: rider_id
 
-	column 'store_id'
+	column store_id
 		dataType: string
 		isHidden
-		lineageTag: 66245bfa-4fcc-439a-b683-d2e6337ea2df
+		lineageTag: ef13cc21-5dd9-42b9-a46d-2df798e3fa99
 		summarizeBy: none
 		sourceColumn: store_id
 
-	column 'vehicle_type'
+	column vehicle_type
 		dataType: string
-		lineageTag: 5f987c71-a65e-488e-abf3-ad39fec21bbe
+		lineageTag: e7ef1f28-f5b7-4d9b-a966-ca8b72bc29e1
 		summarizeBy: none
 		sourceColumn: vehicle_type
 
-	column 'join_date'
+	column join_date
 		dataType: dateTime
 		formatString: d mmm yyyy
-		lineageTag: 7394988f-847f-49b4-a64d-1bcb702753a1
+		lineageTag: 65b54398-1976-4caf-b0d3-2a7459739b52
 		summarizeBy: none
 		sourceColumn: join_date
 
-	partition 'Riders' = m
+		variation Variation
+			isDefault
+			relationship: d05da453-bd50-4c80-960d-43f10871b831
+			defaultHierarchy: LocalDateTable_3395192b-15df-470c-bf42-94cd01370b5a.'Date Hierarchy'
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Riders = m
 		mode: import
 		source =
 				let

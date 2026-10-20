@@ -1,75 +1,90 @@
-table 'Stores'
-	lineageTag: 988c24c9-61b1-4d22-a280-1c4510435a10
+table Stores
+	lineageTag: 5a7c8a22-d416-496a-8085-c4343da4c91f
 
-	column 'store_id'
+	column store_id
 		dataType: string
 		isHidden
-		lineageTag: 405cacec-8774-49a9-b7d2-1e02ff01cf99
+		lineageTag: d78b2d18-912e-4503-85a6-7996eb6096ac
 		summarizeBy: none
 		sourceColumn: store_id
 
-	column 'store_name'
+	column store_name
 		dataType: string
-		lineageTag: f143262f-dc5c-4eed-8da0-365bf89897b9
+		lineageTag: e44a2b32-870f-42f8-9c8f-910f28bdc1b6
 		summarizeBy: none
 		sourceColumn: store_name
 
-	column 'zone'
+	column zone
 		dataType: string
-		lineageTag: 1d53434b-b881-49b9-ae27-0da702f06b90
+		lineageTag: b138e0f5-c3af-4595-89eb-b61c4ea76eec
 		summarizeBy: none
 		sourceColumn: zone
 
-	column 'latitude'
+	column latitude
 		dataType: double
-		lineageTag: c0398710-8976-4334-a281-7efdae849217
+		lineageTag: e258c432-8467-4306-b3bf-95f276484681
 		dataCategory: Latitude
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: latitude
 
-	column 'longitude'
+		annotation SummarizationSetBy = Automatic
+
+	column longitude
 		dataType: double
-		lineageTag: 5715bd6f-a416-4293-84c2-e2e3444ea7c8
+		lineageTag: 617710a6-df0a-4e3f-9140-bc69c64b07a8
 		dataCategory: Longitude
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: longitude
 
-	column 'open_date'
+		annotation SummarizationSetBy = Automatic
+
+	column open_date
 		dataType: dateTime
 		formatString: d mmm yyyy
-		lineageTag: 287d06ca-6f4c-469a-8b22-d3081c8eaee9
+		lineageTag: 8e6a9afa-1cd2-4f22-ab92-43a60f7942e2
 		summarizeBy: none
 		sourceColumn: open_date
 
-	column 'riders'
+		variation Variation
+			isDefault
+			relationship: ab8858ef-0213-4315-afcb-f28b0f7c3bac
+			defaultHierarchy: LocalDateTable_e5411570-6ed4-41f4-beed-1d55b4faa84a.'Date Hierarchy'
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column riders
 		dataType: int64
 		formatString: 0
-		lineageTag: b8db0672-f42d-47cc-80d4-af5974273ca3
-		summarizeBy: none
+		lineageTag: bcccb791-1952-4a26-96eb-8d2b10247c87
+		summarizeBy: sum
 		sourceColumn: riders
 
-	column 'city'
+		annotation SummarizationSetBy = Automatic
+
+	column city
 		dataType: string
-		lineageTag: f8cda88b-436d-46e2-b83c-fe0be037e5ed
+		lineageTag: f4ef5149-638b-4852-aa24-326de83bfda7
 		dataCategory: City
 		summarizeBy: none
 		sourceColumn: city
 
-	column 'sla_minutes'
+	column sla_minutes
 		dataType: int64
 		formatString: 0
-		lineageTag: 81f76d1c-2dbc-4134-830f-f46e8026695f
-		summarizeBy: none
+		lineageTag: fe31b5db-7354-42bd-a8dc-7023c4523710
+		summarizeBy: sum
 		sourceColumn: sla_minutes
 
-	column 'location'
+		annotation SummarizationSetBy = Automatic
+
+	column location
 		dataType: string
-		lineageTag: a013ac6e-deda-4e16-9b3d-bd5ce9a1fa6f
+		lineageTag: 191f45d1-5bf7-4e01-9fa4-cf74c6b34f82
 		dataCategory: Place
 		summarizeBy: none
 		sourceColumn: location
 
-	partition 'Stores' = m
+	partition Stores = m
 		mode: import
 		source =
 				let

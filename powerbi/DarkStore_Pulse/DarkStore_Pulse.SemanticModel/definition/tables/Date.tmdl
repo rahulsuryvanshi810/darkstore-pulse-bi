@@ -1,32 +1,32 @@
 table Date
+	lineageTag: aa20e007-2374-43b6-8259-031294ca5c55
 	dataCategory: Time
-	lineageTag: 1064005c-3985-43cf-bf76-be1d1efa2197
 
-	column 'Date'
+	column Date
 		dataType: dateTime
-		formatString: d mmm yyyy
 		isKey
-		lineageTag: 8dcdcd03-969b-4662-8562-8059568cc69b
+		formatString: d mmm yyyy
+		lineageTag: 05af7cdc-1571-4cec-bfc9-15768723482b
 		summarizeBy: none
 		sourceColumn: [Date]
 
-	column 'Year'
+	column Year
 		dataType: int64
 		formatString: 0
-		lineageTag: 01d74256-3860-4ab6-96a4-02f23ae8cc93
+		lineageTag: 1386a634-3fd3-46d6-8eed-06e56f370349
 		summarizeBy: none
 		sourceColumn: [Year]
 
 	column 'Month No'
 		dataType: int64
 		formatString: 0
-		lineageTag: 0f1259e0-a18f-46b6-b535-106e122c9a56
+		lineageTag: 0065c9aa-d2f1-4eca-b5bf-4df101fdaf81
 		summarizeBy: none
 		sourceColumn: [Month No]
 
-	column 'Month'
+	column Month
 		dataType: string
-		lineageTag: 080aadfb-e7c9-4b26-9141-25c63a9bedd4
+		lineageTag: 6b15445b-351e-4bc1-bb3e-f87b73bfb6dd
 		summarizeBy: none
 		sourceColumn: [Month]
 		sortByColumn: 'Month Start'
@@ -34,20 +34,20 @@ table Date
 	column 'Month Start'
 		dataType: dateTime
 		formatString: mmm yyyy
-		lineageTag: 839fbc50-1223-4513-9496-f63cdc1110c1
+		lineageTag: e699e11d-2278-4bb7-aa60-4477bbac640c
 		summarizeBy: none
 		sourceColumn: [Month Start]
 
 	column 'Week Start'
 		dataType: dateTime
 		formatString: d mmm yyyy
-		lineageTag: 7c441fe7-ab42-40a7-874a-493b3ceddf2d
+		lineageTag: a6b08140-8bf8-48db-9c0b-75a02da9ef87
 		summarizeBy: none
 		sourceColumn: [Week Start]
 
-	column 'Weekday'
+	column Weekday
 		dataType: string
-		lineageTag: b92da22b-21df-406f-8a0b-3c3336d8393a
+		lineageTag: 9d58f289-8249-41d7-ba20-0e98817628b4
 		summarizeBy: none
 		sourceColumn: [Weekday]
 		sortByColumn: 'Weekday No'
@@ -55,13 +55,13 @@ table Date
 	column 'Weekday No'
 		dataType: int64
 		formatString: 0
-		lineageTag: 93829b43-922f-415a-a1e3-db63ef7ddc76
+		lineageTag: 779f7dc7-ccb8-40cd-9d86-46db2d267fd8
 		summarizeBy: none
 		sourceColumn: [Weekday No]
 
 	column 'Is Weekend'
 		dataType: string
-		lineageTag: 7914c120-c8dc-419f-be35-11287900f7f9
+		lineageTag: 8e6e6ee5-8c8a-4003-9fcc-d63c8d4eeecb
 		summarizeBy: none
 		sourceColumn: [Is Weekend]
 

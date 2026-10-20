@@ -477,7 +477,13 @@ def build_twb():
 
 
 if __name__ == "__main__":
-    n = build_pbip()
+    import sys
+    # The committed PBIP has since been opened and saved by Power BI Desktop (PBIR report format),
+    # so it is the master copy; only regenerate it on purpose.
+    if (PBI / "DarkStore_Pulse").exists() and "--force" not in sys.argv:
+        print("Power BI: powerbi/DarkStore_Pulse exists (saved by Power BI Desktop), skipped; use --force to rebuild")
+    else:
+        n = build_pbip()
+        print(f"Power BI: powerbi/DarkStore_Pulse/{NAME}.pbip ({n} measures)")
     k = build_twb()
-    print(f"Power BI: powerbi/DarkStore_Pulse/{NAME}.pbip ({n} measures)")
     print(f"Tableau:  tableau/{NAME}.twb ({k} calculated fields, 3 parameters)")

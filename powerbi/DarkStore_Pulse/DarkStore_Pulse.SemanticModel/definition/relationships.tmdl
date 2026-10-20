@@ -1,28 +1,54 @@
-relationship 23b8c1e9-3924-46de-beb1-3b9046685257
-	fromColumn: 'Orders'.'order_date'
-	toColumn: 'Date'.'Date'
+relationship 1b4f7f93-a605-4a78-8e20-7be5ecf50a6e
+	fromColumn: Orders.order_date
+	toColumn: Date.Date
 
-relationship bd9c66b3-ad3c-4d6d-9a3d-1fa7bc8960a9
-	fromColumn: 'Orders'.'store_id'
-	toColumn: 'Stores'.'store_id'
+relationship 7a703bd8-5074-45de-a79b-90b26b993837
+	fromColumn: Orders.store_id
+	toColumn: Stores.store_id
 
-relationship 972a8469-1641-4f82-8b9d-2434e465e150
-	fromColumn: 'Riders'.'store_id'
-	toColumn: 'Stores'.'store_id'
+relationship c1220a29-71cd-42ec-8150-29b8cabe3be2
+	fromColumn: Riders.store_id
+	toColumn: Stores.store_id
 
-relationship 17fc695a-07a0-4a6e-8822-e8f36c031199
+relationship e1407680-7fa5-4d65-9040-135ccbf5337a
 	isActive: false
-	fromColumn: 'Orders'.'rider_id'
-	toColumn: 'Riders'.'rider_id'
+	fromColumn: Orders.rider_id
+	toColumn: Riders.rider_id
 
-relationship 9a1de644-815e-46d1-bb8f-aa1837f8a88b
-	fromColumn: 'Orders'.'customer_id'
-	toColumn: 'Customers'.'customer_id'
+relationship c5ba323a-52d1-4986-9767-29adc9458561
+	fromColumn: Orders.customer_id
+	toColumn: Customers.customer_id
 
-relationship b74d0fb1-32e7-4629-8fad-c1a606cb0fb3
-	fromColumn: 'Order Items'.'order_id'
-	toColumn: 'Orders'.'order_id'
+relationship f63975fb-84c1-467f-a9d9-906d493e88f5
+	fromColumn: 'Order Items'.order_id
+	toColumn: Orders.order_id
 
-relationship 6b65a6a4-8b81-48f6-b38a-088ca65ed389
-	fromColumn: 'Order Items'.'product_id'
-	toColumn: 'Products'.'product_id'
+relationship b6925207-55b4-47fe-9d77-e35fe777ea7b
+	fromColumn: 'Order Items'.product_id
+	toColumn: Products.product_id
+
+relationship fd95a3fc-0137-491f-8ff7-84d358f6e875
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Orders.order_datetime
+	toColumn: LocalDateTable_b9af5e61-6ba6-4c59-bcc4-6523ea1b7e94.Date
+
+relationship ab8858ef-0213-4315-afcb-f28b0f7c3bac
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Stores.open_date
+	toColumn: LocalDateTable_e5411570-6ed4-41f4-beed-1d55b4faa84a.Date
+
+relationship a0828ee2-56eb-4510-9d08-8c7205838328
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Customers.signup_date
+	toColumn: LocalDateTable_10d5fc1a-138f-4b88-b70f-2f85c20936bc.Date
+
+relationship c39051b8-db4f-4301-9559-caf772eff821
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Customers.'Cohort Month'
+	toColumn: LocalDateTable_3dff3599-11c2-4611-a245-9adc1fa54529.Date
+
+relationship d05da453-bd50-4c80-960d-43f10871b831
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Riders.join_date
+	toColumn: LocalDateTable_3395192b-15df-470c-bf42-94cd01370b5a.Date
+

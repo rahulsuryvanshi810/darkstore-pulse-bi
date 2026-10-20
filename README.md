@@ -13,6 +13,16 @@ An end-to-end BI project on a quick-commerce business (Blinkit / Zepto / Instama
 | 📈 | **Tableau workbook** (`tableau/DarkStore_Pulse.twb`): connected data, 35 calculated fields (LOD, table calcs), 3 parameters; guide for map, set actions, 5-point Story | [`tableau/`](tableau/) |
 | 🐍 | **Python pipeline**: data generator, analysis, charts, 8 data-quality tests | `scripts/`, `tests/` |
 
+### Power BI report (built in Power BI Desktop)
+
+![Power BI: executive overview](powerbi/screenshots/1_executive_overview.png)
+
+| Delivery & SLA | Customers & products |
+|---|---|
+| ![Power BI: delivery and SLA](powerbi/screenshots/2_delivery_sla.png) | ![Power BI: customers and products](powerbi/screenshots/3_customers_products.png) |
+
+### Web dashboard (live, no install needed)
+
 ![Web dashboard](reports/figures/web_dashboard.png)
 
 ---

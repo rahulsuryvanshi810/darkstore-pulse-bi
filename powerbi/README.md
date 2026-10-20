@@ -2,6 +2,8 @@
 
 ## Quick start: open the ready-made project
 
+![Executive overview](screenshots/1_executive_overview.png)
+
 `DarkStore_Pulse/DarkStore_Pulse.pbip` is a **Power BI Project** (text-based PBIP format) that already contains:
 
 - the full data model: 6 tables loaded with Power Query, a Date table marked as date table, relationships
@@ -32,7 +34,7 @@ A 6-page Power BI report on the quick-commerce data in `../data`. Everything you
 | `measures.dax` | Date table, calculated columns and **50+ DAX measures**, grouped by display folder |
 | `theme/darkstore_pulse_theme.json` | Report theme (colour-blind-safe palette, card and page styling) |
 | `DarkStore_Pulse.pbix` | The finished report (save it here after building) |
-| `screenshots/` | One PNG per page, used in the main README |
+| `screenshots/` | One PNG per report page (taken in Power BI Desktop) |
 
 Building it takes about 2 hours. You need **Power BI Desktop** (free, Microsoft Store).
 

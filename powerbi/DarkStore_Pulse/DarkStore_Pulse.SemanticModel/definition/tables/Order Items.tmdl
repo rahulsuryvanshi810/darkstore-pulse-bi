@@ -1,45 +1,45 @@
 table 'Order Items'
-	lineageTag: bf3c4c06-4343-48bc-89fa-6a688fb5d27b
+	lineageTag: 351f2b0e-707b-432a-915f-f2d45a0fb9c7
 
-	column 'order_id'
+	column order_id
 		dataType: string
 		isHidden
-		lineageTag: 956269f0-e5d7-4875-adad-d6c795a76d79
+		lineageTag: ca65d737-2e98-403e-a2c0-b2e5ba6f9d76
 		summarizeBy: none
 		sourceColumn: order_id
 
-	column 'product_id'
+	column product_id
 		dataType: string
 		isHidden
-		lineageTag: ff50bde4-3825-47b8-9cab-cc97663f1c97
+		lineageTag: 404600e0-02c5-4fc9-8463-e23d9dfe7907
 		summarizeBy: none
 		sourceColumn: product_id
 
-	column 'quantity'
+	column quantity
 		dataType: int64
 		formatString: 0
-		lineageTag: 7e570ddf-8270-40a8-a369-b584ff5e9ff0
+		lineageTag: bb14b9e9-52c9-4e3d-b71c-3515a982a896
 		summarizeBy: none
 		sourceColumn: quantity
 
-	column 'mrp'
+	column mrp
 		dataType: decimal
 		formatString: ₹#,0.00
-		lineageTag: dc713d96-0c0f-4195-817a-f08a1745d6d8
+		lineageTag: 1d38b78c-bbc9-41b9-be0d-79609ab28ad4
 		summarizeBy: sum
 		sourceColumn: mrp
 
-	column 'unit_cost'
+	column unit_cost
 		dataType: decimal
 		formatString: ₹#,0.00
-		lineageTag: 28f49481-a0a0-4dc4-a720-9bdf1c11f735
+		lineageTag: dcd43490-5394-4252-a84f-cf726ad83bfa
 		summarizeBy: sum
 		sourceColumn: unit_cost
 
-	column 'fulfilled'
+	column fulfilled
 		dataType: int64
 		formatString: 0
-		lineageTag: 98ae4334-6c12-4ce8-ae34-0454cac5b68c
+		lineageTag: da34d7df-1772-4631-a487-bd3ac9a34392
 		summarizeBy: none
 		sourceColumn: fulfilled
 
