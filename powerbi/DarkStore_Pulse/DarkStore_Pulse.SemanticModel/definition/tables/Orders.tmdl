@@ -1,0 +1,255 @@
+table 'Orders'
+	lineageTag: 54966e23-a6e9-45bc-81c9-e3df815e946f
+
+	column 'order_id'
+		dataType: string
+		isHidden
+		lineageTag: 8242b9c3-ced1-4113-86d4-bd71b442a8c2
+		summarizeBy: none
+		sourceColumn: order_id
+
+	column 'order_datetime'
+		dataType: dateTime
+		formatString: d mmm yyyy hh:mm
+		lineageTag: d96f29b3-9c30-4db3-9f66-b8e62de0d927
+		summarizeBy: none
+		sourceColumn: order_datetime
+
+	column 'store_id'
+		dataType: string
+		isHidden
+		lineageTag: 574c96d0-a695-4777-8567-99aa7640ee38
+		summarizeBy: none
+		sourceColumn: store_id
+
+	column 'customer_id'
+		dataType: string
+		isHidden
+		lineageTag: d93b5fe1-841d-41d4-b0a6-7bea119729fd
+		summarizeBy: none
+		sourceColumn: customer_id
+
+	column 'rider_id'
+		dataType: string
+		isHidden
+		lineageTag: 8c44f5ad-fabf-4869-8a4c-9bf22fbee17e
+		summarizeBy: none
+		sourceColumn: rider_id
+
+	column 'status'
+		dataType: string
+		lineageTag: 92121e28-9704-49b8-8753-54aba8345798
+		summarizeBy: none
+		sourceColumn: status
+
+	column 'cancel_reason'
+		dataType: string
+		lineageTag: da0906a3-2a73-4d9f-8961-17c7babd6e19
+		summarizeBy: none
+		sourceColumn: cancel_reason
+
+	column 'payment_method'
+		dataType: string
+		lineageTag: 930d8ea8-344a-407b-bda0-8d83e56b63ee
+		summarizeBy: none
+		sourceColumn: payment_method
+
+	column 'is_first_order'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5e742208-a6f8-4917-82a8-a23053b062cf
+		summarizeBy: none
+		sourceColumn: is_first_order
+
+	column 'coupon_used'
+		dataType: int64
+		formatString: 0
+		lineageTag: df13e1dc-9355-44fe-a182-a84d6992cc7f
+		summarizeBy: none
+		sourceColumn: coupon_used
+
+	column 'is_rain_day'
+		dataType: int64
+		formatString: 0
+		lineageTag: cc44595e-f550-4366-8529-58f714d96526
+		summarizeBy: none
+		sourceColumn: is_rain_day
+
+	column 'festival'
+		dataType: string
+		lineageTag: 1a05cd7b-2dba-405c-9023-501531cf5385
+		summarizeBy: none
+		sourceColumn: festival
+
+	column 'items_count'
+		dataType: int64
+		formatString: 0
+		lineageTag: bac4f9dd-e73b-446d-b5f9-a9c42a7d2274
+		summarizeBy: none
+		sourceColumn: items_count
+
+	column 'item_total'
+		dataType: decimal
+		formatString: ₹#,0.00
+		lineageTag: 485fead2-301e-4f91-9e40-934c827e260c
+		summarizeBy: sum
+		sourceColumn: item_total
+
+	column 'discount'
+		dataType: decimal
+		formatString: ₹#,0.00
+		lineageTag: d94ff568-f5a1-43e3-80f8-ad9efa7bb2b0
+		summarizeBy: sum
+		sourceColumn: discount
+
+	column 'delivery_fee'
+		dataType: decimal
+		formatString: ₹#,0.00
+		lineageTag: b9e03263-0167-4935-8765-463692d6f48b
+		summarizeBy: sum
+		sourceColumn: delivery_fee
+
+	column 'cogs'
+		dataType: decimal
+		formatString: ₹#,0.00
+		lineageTag: fbe9ee32-bd26-4a3f-a991-0c1370cbd053
+		summarizeBy: sum
+		sourceColumn: cogs
+
+	column 'rider_cost'
+		dataType: decimal
+		formatString: ₹#,0.00
+		lineageTag: 13a394ff-03ee-428c-9179-2bae9cd56be9
+		summarizeBy: sum
+		sourceColumn: rider_cost
+
+	column 'distance_km'
+		dataType: double
+		formatString: 0.00
+		lineageTag: 554f1612-f912-4324-afd7-46e23ba74fb5
+		summarizeBy: sum
+		sourceColumn: distance_km
+
+	column 'delivery_minutes'
+		dataType: double
+		formatString: 0.00
+		lineageTag: 213f9ec7-95e4-42ef-a15d-1b9401376ffb
+		summarizeBy: sum
+		sourceColumn: delivery_minutes
+
+	column 'rating'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d64a853-daa6-406d-953f-c58c22dde8b4
+		summarizeBy: none
+		sourceColumn: rating
+
+	column 'had_stockout'
+		dataType: int64
+		formatString: 0
+		lineageTag: 77fc6409-54dd-4751-8934-7fb917d4328c
+		summarizeBy: none
+		sourceColumn: had_stockout
+
+	column 'sla_met'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2e0e5564-3143-4cd7-a52c-0b8dcb6bd300
+		summarizeBy: none
+		sourceColumn: sla_met
+
+	column 'net_revenue'
+		dataType: decimal
+		formatString: ₹#,0.00
+		lineageTag: d49f1cb4-25ed-4b6a-9197-553ab84e8446
+		summarizeBy: sum
+		sourceColumn: net_revenue
+
+	column 'contribution'
+		dataType: decimal
+		formatString: ₹#,0.00
+		lineageTag: 4d124626-65dd-4ce6-a12b-db351528fc26
+		summarizeBy: sum
+		sourceColumn: contribution
+
+	column 'order_date'
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: 14f71d3b-7d15-443c-8b99-df0a4fcfc24b
+		summarizeBy: none
+		sourceColumn: order_date
+
+	column 'order_hour'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f534c51-d7bb-45ae-a229-39ff7dc7909d
+		summarizeBy: none
+		sourceColumn: order_hour
+
+	column 'Hour Band' =
+			SWITCH (
+				TRUE (),
+				Orders[order_hour] < 10, "1 Morning (6-10)",
+				Orders[order_hour] < 17, "2 Daytime (10-17)",
+				Orders[order_hour] < 23, "3 Evening rush (17-23)",
+				"4 Late night (23+)"
+			)
+		dataType: string
+		lineageTag: df163539-6c2a-484e-a135-3ac52c458182
+		summarizeBy: none
+
+	column 'Delay Band' =
+			SWITCH (
+				TRUE (),
+				ISBLANK ( Orders[delivery_minutes] ), "Cancelled",
+				Orders[delivery_minutes] <= 10, "1 On time (<=10)",
+				Orders[delivery_minutes] <= 12, "2 10-12 min",
+				Orders[delivery_minutes] <= 15, "3 12-15 min",
+				Orders[delivery_minutes] <= 20, "4 15-20 min",
+				"5 20+ min"
+			)
+		dataType: string
+		lineageTag: d9629787-b2de-419e-a9cb-e7379a4e2a98
+		summarizeBy: none
+
+	column 'Weather' =
+			IF ( Orders[is_rain_day] = 1, "Rain day", "Dry day" )
+		dataType: string
+		lineageTag: 68b052b1-843f-4fc8-a59f-228dcfd64a7c
+		summarizeBy: none
+
+	column 'Months Since Signup' =
+			DATEDIFF ( RELATED ( Customers[Cohort Month] ), Orders[order_date], MONTH )
+		dataType: int64
+		formatString: 0
+		lineageTag: aef0674f-08fb-49cf-9fe0-1f627c5b5504
+		summarizeBy: none
+
+	partition 'Orders' = m
+		mode: import
+		source =
+				let
+				    Source   = Csv.Document(File.Contents(DataFolder & "orders.csv"),
+				                 [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Headers  = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    // cancelled orders have blank minutes / rating / sla_met / reason -> null
+				    Blanks   = Table.ReplaceValue(Headers, "", null, Replacer.ReplaceValue,
+				                 {"delivery_minutes", "rating", "sla_met", "cancel_reason"}),
+				    Typed    = Table.TransformColumnTypes(Blanks, {
+				        {"order_id", type text}, {"order_datetime", type datetime}, {"store_id", type text},
+				        {"customer_id", type text}, {"rider_id", type text}, {"status", type text},
+				        {"cancel_reason", type text}, {"payment_method", type text},
+				        {"is_first_order", Int64.Type}, {"coupon_used", Int64.Type}, {"is_rain_day", Int64.Type},
+				        {"festival", type text}, {"items_count", Int64.Type},
+				        {"item_total", Currency.Type}, {"discount", Currency.Type}, {"delivery_fee", Currency.Type},
+				        {"cogs", Currency.Type}, {"rider_cost", Currency.Type}, {"distance_km", type number},
+				        {"delivery_minutes", type number}, {"rating", Int64.Type}, {"had_stockout", Int64.Type},
+				        {"sla_met", Int64.Type}, {"net_revenue", Currency.Type}, {"contribution", Currency.Type}},
+				        "en-IN"),
+				    AddDate  = Table.AddColumn(Typed, "order_date", each DateTime.Date([order_datetime]), type date),
+				    AddHour  = Table.AddColumn(AddDate, "order_hour", each Time.Hour([order_datetime]), Int64.Type)
+				in
+				    AddHour
+
+	annotation PBI_ResultType = Table
+

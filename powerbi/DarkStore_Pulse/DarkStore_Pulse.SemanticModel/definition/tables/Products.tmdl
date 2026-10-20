@@ -1,0 +1,65 @@
+table 'Products'
+	lineageTag: 34303065-667d-48ea-afd2-5534525cc209
+
+	column 'product_id'
+		dataType: string
+		isHidden
+		lineageTag: cf74a1e1-6955-421c-9822-b49f55bc902c
+		summarizeBy: none
+		sourceColumn: product_id
+
+	column 'category'
+		dataType: string
+		lineageTag: 8af90f14-5974-49ed-b866-c21d29cf1e5d
+		summarizeBy: none
+		sourceColumn: category
+
+	column 'product_name'
+		dataType: string
+		lineageTag: 70191cf7-0450-49d8-9eda-ade396476d27
+		summarizeBy: none
+		sourceColumn: product_name
+
+	column 'mrp'
+		dataType: decimal
+		formatString: ₹#,0.00
+		lineageTag: b6144194-cddf-448c-8bf7-f0ab6b89f879
+		summarizeBy: sum
+		sourceColumn: mrp
+
+	column 'unit_cost'
+		dataType: decimal
+		formatString: ₹#,0.00
+		lineageTag: 49c010e8-079e-4d58-a0aa-575b0c1a4684
+		summarizeBy: sum
+		sourceColumn: unit_cost
+
+	column 'shelf_life'
+		dataType: string
+		lineageTag: 852bc1ad-ed1f-4545-9d83-34d401a1fa46
+		summarizeBy: none
+		sourceColumn: shelf_life
+
+	column 'margin_pct'
+		dataType: double
+		formatString: 0.0%
+		lineageTag: c1838970-4488-44ed-b138-900686b2b161
+		summarizeBy: sum
+		sourceColumn: margin_pct
+
+	partition 'Products' = m
+		mode: import
+		source =
+				let
+				    Source  = Csv.Document(File.Contents(DataFolder & "products.csv"),
+				                [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed   = Table.TransformColumnTypes(Headers, {
+				        {"product_id", type text}, {"category", type text}, {"product_name", type text},
+				        {"mrp", Currency.Type}, {"unit_cost", Currency.Type}, {"shelf_life", type text}}, "en-IN"),
+				    AddMargin = Table.AddColumn(Typed, "margin_pct", each ([mrp] - [unit_cost]) / [mrp], Percentage.Type)
+				in
+				    AddMargin
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,45 @@
+table 'Riders'
+	lineageTag: 1ae8177a-0022-47dc-863e-205c3f35310b
+
+	column 'rider_id'
+		dataType: string
+		isHidden
+		lineageTag: 8e0dcd4d-43a0-4a65-874e-c06fba440703
+		summarizeBy: none
+		sourceColumn: rider_id
+
+	column 'store_id'
+		dataType: string
+		isHidden
+		lineageTag: 7362fd24-7bc5-427c-8f22-1b6a680f895e
+		summarizeBy: none
+		sourceColumn: store_id
+
+	column 'vehicle_type'
+		dataType: string
+		lineageTag: d8cb3638-d06b-42fa-96f0-274361511f4c
+		summarizeBy: none
+		sourceColumn: vehicle_type
+
+	column 'join_date'
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: 09f7c41b-8fad-4470-be77-b877ebcb3e75
+		summarizeBy: none
+		sourceColumn: join_date
+
+	partition 'Riders' = m
+		mode: import
+		source =
+				let
+				    Source  = Csv.Document(File.Contents(DataFolder & "riders.csv"),
+				                [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed   = Table.TransformColumnTypes(Headers, {
+				        {"rider_id", type text}, {"store_id", type text}, {"vehicle_type", type text},
+				        {"join_date", type date}}, "en-IN")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

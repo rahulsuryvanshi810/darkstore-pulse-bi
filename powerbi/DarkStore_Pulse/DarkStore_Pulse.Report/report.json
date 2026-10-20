@@ -1,0 +1,340 @@
+{
+  "config": "{\"version\": \"5.43\", \"themeCollection\": {}, \"activeSectionIndex\": 0, \"defaultDrillFilterOtherVisuals\": true, \"settings\": {\"useStylableVisualContainerHeader\": true}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [],
+  "sections": [
+    {
+      "name": "ReportSection1",
+      "displayName": "1 Executive overview",
+      "displayOption": 1,
+      "width": 1280,
+      "height": 720,
+      "ordinal": 0,
+      "config": "{}",
+      "filters": "[]",
+      "visualContainers": [
+        {
+          "x": 20,
+          "y": 16,
+          "z": 0,
+          "width": 300,
+          "height": 60,
+          "config": "{\"name\": \"as1\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 16, \"z\": 0, \"width\": 300, \"height\": 60}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"Date.Date\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Date\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Date\"}, \"Name\": \"Date.Date\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Date'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 340,
+          "y": 16,
+          "z": 0,
+          "width": 300,
+          "height": 60,
+          "config": "{\"name\": \"as2\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 340, \"y\": 16, \"z\": 0, \"width\": 300, \"height\": 60}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"Stores.store_name\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Stores\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"store_name\"}, \"Name\": \"Stores.store_name\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Store'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 660,
+          "y": 16,
+          "z": 0,
+          "width": 300,
+          "height": 60,
+          "config": "{\"name\": \"as3\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 660, \"y\": 16, \"z\": 0, \"width\": 300, \"height\": 60}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"Stores.zone\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Stores\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"zone\"}, \"Name\": \"Stores.zone\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Zone'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 20,
+          "y": 92,
+          "z": 0,
+          "width": 197,
+          "height": 100,
+          "config": "{\"name\": \"ac0\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 92, \"z\": 0, \"width\": 197, \"height\": 100}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Measures.Net Revenue\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Measures\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Net Revenue\"}, \"Name\": \"_Measures.Net Revenue\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Net revenue'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 227,
+          "y": 92,
+          "z": 0,
+          "width": 197,
+          "height": 100,
+          "config": "{\"name\": \"ac1\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 227, \"y\": 92, \"z\": 0, \"width\": 197, \"height\": 100}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Measures.Total Orders\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Measures\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Total Orders\"}, \"Name\": \"_Measures.Total Orders\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Orders'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 434,
+          "y": 92,
+          "z": 0,
+          "width": 197,
+          "height": 100,
+          "config": "{\"name\": \"ac2\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 434, \"y\": 92, \"z\": 0, \"width\": 197, \"height\": 100}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Measures.AOV\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Measures\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"AOV\"}, \"Name\": \"_Measures.AOV\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Avg order value'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 641,
+          "y": 92,
+          "z": 0,
+          "width": 197,
+          "height": 100,
+          "config": "{\"name\": \"ac3\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 641, \"y\": 92, \"z\": 0, \"width\": 197, \"height\": 100}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Measures.Contribution Margin %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Measures\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Contribution Margin %\"}, \"Name\": \"_Measures.Contribution Margin %\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Contribution margin'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 848,
+          "y": 92,
+          "z": 0,
+          "width": 197,
+          "height": 100,
+          "config": "{\"name\": \"ac4\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 848, \"y\": 92, \"z\": 0, \"width\": 197, \"height\": 100}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Measures.SLA %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Measures\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"SLA %\"}, \"Name\": \"_Measures.SLA %\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'On-time (<=10 min)'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1055,
+          "y": 92,
+          "z": 0,
+          "width": 197,
+          "height": 100,
+          "config": "{\"name\": \"ac5\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1055, \"y\": 92, \"z\": 0, \"width\": 197, \"height\": 100}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Measures.Cancellation Rate\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Measures\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Cancellation Rate\"}, \"Name\": \"_Measures.Cancellation Rate\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Cancellation rate'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 20,
+          "y": 208,
+          "z": 0,
+          "width": 760,
+          "height": 290,
+          "config": "{\"name\": \"aline\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 208, \"z\": 0, \"width\": 760, \"height\": 290}}], \"singleVisual\": {\"visualType\": \"lineChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Date.Month Start\"}], \"Y\": [{\"queryRef\": \"_Measures.Net Revenue\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Date\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"_Measures\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Month Start\"}, \"Name\": \"Date.Month Start\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Net Revenue\"}, \"Name\": \"_Measures.Net Revenue\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Monthly net revenue'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 796,
+          "y": 208,
+          "z": 0,
+          "width": 464,
+          "height": 290,
+          "config": "{\"name\": \"abar\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 796, \"y\": 208, \"z\": 0, \"width\": 464, \"height\": 290}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Stores.store_name\"}], \"Y\": [{\"queryRef\": \"_Measures.SLA %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Stores\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"_Measures\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"store_name\"}, \"Name\": \"Stores.store_name\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"SLA %\"}, \"Name\": \"_Measures.SLA %\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'On-time rate by store'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 20,
+          "y": 514,
+          "z": 0,
+          "width": 760,
+          "height": 190,
+          "config": "{\"name\": \"adiv\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 514, \"z\": 0, \"width\": 760, \"height\": 190}}], \"singleVisual\": {\"visualType\": \"clusteredColumnChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Orders.festival\"}], \"Y\": [{\"queryRef\": \"_Measures.Orders per Store per Day\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Orders\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"_Measures\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"festival\"}, \"Name\": \"Orders.festival\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Orders per Store per Day\"}, \"Name\": \"_Measures.Orders per Store per Day\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Orders per store per day by festival'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 796,
+          "y": 514,
+          "z": 0,
+          "width": 464,
+          "height": 190,
+          "config": "{\"name\": \"apay\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 796, \"y\": 514, \"z\": 0, \"width\": 464, \"height\": 190}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Orders.payment_method\"}], \"Y\": [{\"queryRef\": \"_Measures.Cancellation Rate\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Orders\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"_Measures\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"payment_method\"}, \"Name\": \"Orders.payment_method\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Cancellation Rate\"}, \"Name\": \"_Measures.Cancellation Rate\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Cancellation rate by payment method'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ]
+    },
+    {
+      "name": "ReportSection2",
+      "displayName": "2 Delivery & SLA",
+      "displayOption": 1,
+      "width": 1280,
+      "height": 720,
+      "ordinal": 1,
+      "config": "{}",
+      "filters": "[]",
+      "visualContainers": [
+        {
+          "x": 20,
+          "y": 16,
+          "z": 0,
+          "width": 300,
+          "height": 60,
+          "config": "{\"name\": \"bs1\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 16, \"z\": 0, \"width\": 300, \"height\": 60}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"Date.Date\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Date\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Date\"}, \"Name\": \"Date.Date\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Date'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 340,
+          "y": 16,
+          "z": 0,
+          "width": 300,
+          "height": 60,
+          "config": "{\"name\": \"bs2\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 340, \"y\": 16, \"z\": 0, \"width\": 300, \"height\": 60}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"Stores.store_name\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Stores\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"store_name\"}, \"Name\": \"Stores.store_name\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Store'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 660,
+          "y": 16,
+          "z": 0,
+          "width": 300,
+          "height": 60,
+          "config": "{\"name\": \"bs3\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 660, \"y\": 16, \"z\": 0, \"width\": 300, \"height\": 60}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"Stores.zone\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Stores\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"zone\"}, \"Name\": \"Stores.zone\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Zone'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 980,
+          "y": 16,
+          "z": 0,
+          "width": 280,
+          "height": 60,
+          "config": "{\"name\": \"bslider\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 980, \"y\": 16, \"z\": 0, \"width\": 280, \"height\": 60}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"SLA Target.SLA Target\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"SLA Target\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"SLA Target\"}, \"Name\": \"SLA Target.SLA Target\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'SLA target (min)'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 20,
+          "y": 92,
+          "z": 0,
+          "width": 760,
+          "height": 300,
+          "config": "{\"name\": \"bheat\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 92, \"z\": 0, \"width\": 760, \"height\": 300}}], \"singleVisual\": {\"visualType\": \"pivotTable\", \"projections\": {\"Rows\": [{\"queryRef\": \"Date.Weekday\"}], \"Columns\": [{\"queryRef\": \"Orders.order_hour\"}], \"Values\": [{\"queryRef\": \"_Measures.SLA %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Date\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Orders\", \"Type\": 0}, {\"Name\": \"t2\", \"Entity\": \"_Measures\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Weekday\"}, \"Name\": \"Date.Weekday\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"order_hour\"}, \"Name\": \"Orders.order_hour\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"SLA %\"}, \"Name\": \"_Measures.SLA %\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'On-time rate by weekday and hour'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 796,
+          "y": 92,
+          "z": 0,
+          "width": 464,
+          "height": 300,
+          "config": "{\"name\": \"brain\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 796, \"y\": 92, \"z\": 0, \"width\": 464, \"height\": 300}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Stores.store_name\"}], \"Series\": [{\"queryRef\": \"Orders.Weather\"}], \"Y\": [{\"queryRef\": \"_Measures.SLA %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Stores\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Orders\", \"Type\": 0}, {\"Name\": \"t2\", \"Entity\": \"_Measures\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"store_name\"}, \"Name\": \"Stores.store_name\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Weather\"}, \"Name\": \"Orders.Weather\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"SLA %\"}, \"Name\": \"_Measures.SLA %\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'On-time rate: dry vs rain days'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 20,
+          "y": 408,
+          "z": 0,
+          "width": 620,
+          "height": 296,
+          "config": "{\"name\": \"bdelay\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 408, \"z\": 0, \"width\": 620, \"height\": 296}}], \"singleVisual\": {\"visualType\": \"clusteredColumnChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Orders.Delay Band\"}], \"Y\": [{\"queryRef\": \"_Measures.Avg Rating\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Orders\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"_Measures\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Delay Band\"}, \"Name\": \"Orders.Delay Band\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Avg Rating\"}, \"Name\": \"_Measures.Avg Rating\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Average rating by delivery time'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 656,
+          "y": 408,
+          "z": 0,
+          "width": 296,
+          "height": 140,
+          "config": "{\"name\": \"bk1\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 656, \"y\": 408, \"z\": 0, \"width\": 296, \"height\": 140}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Measures.Avg Delivery Min\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Measures\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Avg Delivery Min\"}, \"Name\": \"_Measures.Avg Delivery Min\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Avg delivery minutes'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 964,
+          "y": 408,
+          "z": 0,
+          "width": 296,
+          "height": 140,
+          "config": "{\"name\": \"bk2\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 964, \"y\": 408, \"z\": 0, \"width\": 296, \"height\": 140}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Measures.P90 Delivery Min\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Measures\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"P90 Delivery Min\"}, \"Name\": \"_Measures.P90 Delivery Min\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'90th percentile minutes'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 656,
+          "y": 564,
+          "z": 0,
+          "width": 296,
+          "height": 140,
+          "config": "{\"name\": \"bk3\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 656, \"y\": 564, \"z\": 0, \"width\": 296, \"height\": 140}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Measures.Rain SLA Gap (pp)\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Measures\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Rain SLA Gap (pp)\"}, \"Name\": \"_Measures.Rain SLA Gap (pp)\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Rain SLA gap (points)'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 964,
+          "y": 564,
+          "z": 0,
+          "width": 296,
+          "height": 140,
+          "config": "{\"name\": \"bk4\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 964, \"y\": 564, \"z\": 0, \"width\": 296, \"height\": 140}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Measures.Deliveries per Rider per Day\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Measures\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Deliveries per Rider per Day\"}, \"Name\": \"_Measures.Deliveries per Rider per Day\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Deliveries per rider per day'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ]
+    },
+    {
+      "name": "ReportSection3",
+      "displayName": "3 Customers & products",
+      "displayOption": 1,
+      "width": 1280,
+      "height": 720,
+      "ordinal": 2,
+      "config": "{}",
+      "filters": "[]",
+      "visualContainers": [
+        {
+          "x": 20,
+          "y": 16,
+          "z": 0,
+          "width": 300,
+          "height": 60,
+          "config": "{\"name\": \"cs1\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 16, \"z\": 0, \"width\": 300, \"height\": 60}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"Date.Date\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Date\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Date\"}, \"Name\": \"Date.Date\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Date'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 340,
+          "y": 16,
+          "z": 0,
+          "width": 300,
+          "height": 60,
+          "config": "{\"name\": \"cs2\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 340, \"y\": 16, \"z\": 0, \"width\": 300, \"height\": 60}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"Stores.store_name\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Stores\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"store_name\"}, \"Name\": \"Stores.store_name\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Store'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 660,
+          "y": 16,
+          "z": 0,
+          "width": 300,
+          "height": 60,
+          "config": "{\"name\": \"cs3\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 660, \"y\": 16, \"z\": 0, \"width\": 300, \"height\": 60}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"Stores.zone\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Stores\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"zone\"}, \"Name\": \"Stores.zone\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Zone'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 20,
+          "y": 92,
+          "z": 0,
+          "width": 760,
+          "height": 400,
+          "config": "{\"name\": \"ccoh\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 92, \"z\": 0, \"width\": 760, \"height\": 400}}], \"singleVisual\": {\"visualType\": \"pivotTable\", \"projections\": {\"Rows\": [{\"queryRef\": \"Customers.Cohort Month\"}], \"Columns\": [{\"queryRef\": \"Cohort Age.Month No\"}], \"Values\": [{\"queryRef\": \"_Measures.Retention %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Customers\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"Cohort Age\", \"Type\": 0}, {\"Name\": \"t2\", \"Entity\": \"_Measures\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Cohort Month\"}, \"Name\": \"Customers.Cohort Month\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Month No\"}, \"Name\": \"Cohort Age.Month No\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"Retention %\"}, \"Name\": \"_Measures.Retention %\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Customer retention by signup month'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 796,
+          "y": 92,
+          "z": 0,
+          "width": 464,
+          "height": 240,
+          "config": "{\"name\": \"cch\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 796, \"y\": 92, \"z\": 0, \"width\": 464, \"height\": 240}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"projections\": {\"Values\": [{\"queryRef\": \"Customers.acquisition_channel\"}, {\"queryRef\": \"_Measures.Active Customers\"}, {\"queryRef\": \"_Measures.Orders per Customer\"}, {\"queryRef\": \"_Measures.Revenue per Customer\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Customers\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"_Measures\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"acquisition_channel\"}, \"Name\": \"Customers.acquisition_channel\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Active Customers\"}, \"Name\": \"_Measures.Active Customers\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Orders per Customer\"}, \"Name\": \"_Measures.Orders per Customer\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Revenue per Customer\"}, \"Name\": \"_Measures.Revenue per Customer\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Value by acquisition channel'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 796,
+          "y": 348,
+          "z": 0,
+          "width": 226,
+          "height": 144,
+          "config": "{\"name\": \"ck1\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 796, \"y\": 348, \"z\": 0, \"width\": 226, \"height\": 144}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Measures.Repeat Customer %\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Measures\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Repeat Customer %\"}, \"Name\": \"_Measures.Repeat Customer %\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Repeat customers'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1034,
+          "y": 348,
+          "z": 0,
+          "width": 226,
+          "height": 144,
+          "config": "{\"name\": \"ck2\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1034, \"y\": 348, \"z\": 0, \"width\": 226, \"height\": 144}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"_Measures.Orders per Customer\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"_Measures\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Orders per Customer\"}, \"Name\": \"_Measures.Orders per Customer\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Orders per customer'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 20,
+          "y": 508,
+          "z": 0,
+          "width": 760,
+          "height": 196,
+          "config": "{\"name\": \"ccat\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 20, \"y\": 508, \"z\": 0, \"width\": 760, \"height\": 196}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Products.category\"}], \"Y\": [{\"queryRef\": \"_Measures.Item Revenue\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Products\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"_Measures\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"category\"}, \"Name\": \"Products.category\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Item Revenue\"}, \"Name\": \"_Measures.Item Revenue\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Revenue by category'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 796,
+          "y": 508,
+          "z": 0,
+          "width": 464,
+          "height": 196,
+          "config": "{\"name\": \"cstk\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 796, \"y\": 508, \"z\": 0, \"width\": 464, \"height\": 196}}], \"singleVisual\": {\"visualType\": \"clusteredBarChart\", \"projections\": {\"Category\": [{\"queryRef\": \"Products.category\"}], \"Y\": [{\"queryRef\": \"_Measures.Item Stockout Rate\"}]}, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"Products\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"_Measures\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"category\"}, \"Name\": \"Products.category\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Item Stockout Rate\"}, \"Name\": \"_Measures.Item Stockout Rate\"}]}, \"drillFilterOtherVisuals\": true, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Stockout rate by category'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ]
+    }
+  ]
+}

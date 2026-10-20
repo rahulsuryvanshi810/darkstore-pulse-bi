@@ -4,3 +4,5 @@ __pycache__/
 .ipynb_checkpoints/
 *.pbix.bak
 ~$*
+**/.pbi/localSettings.json
+**/.pbi/cache.abf

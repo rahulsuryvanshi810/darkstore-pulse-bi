@@ -9,8 +9,8 @@ An end-to-end BI project on a quick-commerce business (Blinkit / Zepto / Instama
 | | What | Where |
 |---|---|---|
 | 🌐 | **Live interactive dashboard**: filters, hover tooltips, dark mode | **[Open the dashboard](https://rahulsuryvanshi810.github.io/darkstore-pulse-bi/)** · `docs/` |
-| 📊 | **Power BI report**: 6 pages, 50+ DAX measures, what-if SLA slider, drill-through, RLS | [`powerbi/`](powerbi/) |
-| 📈 | **Tableau workbook**: map, LOD cohorts, parameter & set actions, 5-point Story | [`tableau/`](tableau/) |
+| 📊 | **Power BI project** (`powerbi/DarkStore_Pulse/DarkStore_Pulse.pbip`): data model, 57 DAX measures, 3 report pages; guide for what-if SLA slider, drill-through, RLS | [`powerbi/`](powerbi/) |
+| 📈 | **Tableau workbook** (`tableau/DarkStore_Pulse.twb`): connected data, 35 calculated fields (LOD, table calcs), 3 parameters; guide for map, set actions, 5-point Story | [`tableau/`](tableau/) |
 | 🐍 | **Python pipeline**: data generator, analysis, charts, 8 data-quality tests | `scripts/`, `tests/` |
 
 ![Web dashboard](reports/figures/web_dashboard.png)
@@ -97,6 +97,7 @@ orders only) · Contribution = net revenue − cost of goods − rider payout ·
 pip install -r requirements.txt
 python scripts/generate_data.py   # rebuilds data/*.csv (fixed seed, same output every time)
 python scripts/analyze.py         # outputs/*.csv, reports/figures/*.png, docs/data.js, tableau flat file
+python scripts/build_bi_files.py  # Power BI project (.pbip) + Tableau workbook (.twb)
 python -m pytest -q               # 8 data-quality checks
 ```
 

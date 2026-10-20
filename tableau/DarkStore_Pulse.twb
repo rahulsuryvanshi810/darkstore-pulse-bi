@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<workbook source-build='2024.2.0 (20242.24.0807.0327)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences />
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption="p.SLA Target" datatype='integer' name="[p.SLA Target]" param-domain-type='range' role='measure' type='quantitative' value='10'>
+        <calculation class='tableau' formula='10' />
+        <range granularity='1' max='20' min='5' />
+      </column>
+      <column caption="p.Top N Stores" datatype='integer' name="[p.Top N Stores]" param-domain-type='range' role='measure' type='quantitative' value='5'>
+        <calculation class='tableau' formula='5' />
+        <range granularity='1' max='8' min='3' />
+      </column>
+      <column caption="p.Metric" datatype='string' name="[p.Metric]" param-domain-type='list' role='measure' type='nominal' value='"Net Revenue"'>
+        <calculation class='tableau' formula='"Net Revenue"' />
+        <members>
+          <member value='"Net Revenue"' />
+          <member value='"Orders"' />
+          <member value='"SLA %"' />
+          <member value='"Contribution Margin %"' />
+        </members>
+      </column>
+    </datasource>
+    <datasource caption='DarkStore Orders' inline='true' name='federated.darkstore0001' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='darkstore_orders_flat' name='textscan.darkstore0001'>
+            <connection class='textscan' directory="C:/Users/Rahul/projects/GitHub-Projects/darkstore-pulse-bi/tableau" filename='darkstore_orders_flat.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.darkstore0001' name='darkstore_orders_flat.csv' table='[darkstore_orders_flat#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+            <column datatype='string' name='order_id' ordinal='0' />
+            <column datatype='datetime' name='order_datetime' ordinal='1' />
+            <column datatype='string' name='store_id' ordinal='2' />
+            <column datatype='string' name='customer_id' ordinal='3' />
+            <column datatype='string' name='rider_id' ordinal='4' />
+            <column datatype='string' name='status' ordinal='5' />
+            <column datatype='string' name='cancel_reason' ordinal='6' />
+            <column datatype='string' name='payment_method' ordinal='7' />
+            <column datatype='integer' name='is_first_order' ordinal='8' />
+            <column datatype='integer' name='coupon_used' ordinal='9' />
+            <column datatype='integer' name='is_rain_day' ordinal='10' />
+            <column datatype='string' name='festival' ordinal='11' />
+            <column datatype='integer' name='items_count' ordinal='12' />
+            <column datatype='real' name='item_total' ordinal='13' />
+            <column datatype='real' name='discount' ordinal='14' />
+            <column datatype='real' name='delivery_fee' ordinal='15' />
+            <column datatype='real' name='cogs' ordinal='16' />
+            <column datatype='real' name='rider_cost' ordinal='17' />
+            <column datatype='real' name='distance_km' ordinal='18' />
+            <column datatype='real' name='delivery_minutes' ordinal='19' />
+            <column datatype='integer' name='rating' ordinal='20' />
+            <column datatype='integer' name='had_stockout' ordinal='21' />
+            <column datatype='integer' name='sla_met' ordinal='22' />
+            <column datatype='real' name='net_revenue' ordinal='23' />
+            <column datatype='real' name='contribution' ordinal='24' />
+            <column datatype='string' name='store_name' ordinal='25' />
+            <column datatype='string' name='zone' ordinal='26' />
+            <column datatype='real' name='latitude' ordinal='27' />
+            <column datatype='real' name='longitude' ordinal='28' />
+            <column datatype='string' name='acquisition_channel' ordinal='29' />
+            <column datatype='string' name='signup_month' ordinal='30' />
+          </columns>
+        </relation>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='real' name='[latitude]' role='dimension' semantic-role='[Geographical].[Latitude]' type='quantitative' />
+      <column datatype='real' name='[longitude]' role='dimension' semantic-role='[Geographical].[Longitude]' type='quantitative' />
+      <column caption="Analysis → Create Calculated Field**. Names in **bold** are the field names to use.&#10;&#10;## Row-level fields&#10;&#10;" datatype='real' name="[Analysis → Create Calculated Field**. Names in **bold** are the field names to use.&#10;&#10;## Row-level fields&#10;&#10;]" role='measure' type='quantitative'>
+        <calculation class='tableau' formula="DATE([order_datetime])" />
+      </column>
+      <column caption="Order Hour" datatype='integer' name="[Order Hour]" role='dimension' type='ordinal'>
+        <calculation class='tableau' formula="DATEPART('hour', [order_datetime])" />
+      </column>
+      <column caption="Is Delivered" datatype='boolean' name="[Is Delivered]" role='dimension' type='nominal'>
+        <calculation class='tableau' formula='[status] = "Delivered"' />
+      </column>
+      <column caption="Weather" datatype='string' name="[Weather]" role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [is_rain_day] = 1 THEN "Rain day" ELSE "Dry day" END' />
+      </column>
+      <column caption="Hour Band" datatype='string' name="[Hour Band]" role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [Order Hour] &lt; 10 THEN "Morning (6-10)"&#10;ELSEIF [Order Hour] &lt; 17 THEN "Daytime (10-17)"&#10;ELSEIF [Order Hour] &lt; 23 THEN "Evening rush (17-23)"&#10;ELSE "Late night (23+)"&#10;END' />
+      </column>
+      <column caption="Delay Band" datatype='string' name="[Delay Band]" role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF NOT [Is Delivered] THEN "Cancelled"&#10;ELSEIF [delivery_minutes] &lt;= 10 THEN "1. On time (&lt;=10)"&#10;ELSEIF [delivery_minutes] &lt;= 12 THEN "2. 10-12 min"&#10;ELSEIF [delivery_minutes] &lt;= 15 THEN "3. 12-15 min"&#10;ELSEIF [delivery_minutes] &lt;= 20 THEN "4. 15-20 min"&#10;ELSE "5. 20+ min"&#10;END' />
+      </column>
+      <column caption="Within SLA" datatype='integer' name="[Within SLA]" role='measure' type='quantitative'>
+        <calculation class='tableau' formula="IF [Is Delivered] AND [delivery_minutes] &lt;= [Parameters].[p.SLA Target] THEN 1 ELSE 0 END" />
+      </column>
+      <column caption="Total Orders" datatype='real' name="[Total Orders]" role='measure' type='quantitative'>
+        <calculation class='tableau' formula="COUNTD([order_id])" />
+      </column>
+      <column caption="Delivered Orders" datatype='real' name="[Delivered Orders]" role='measure' type='quantitative'>
+        <calculation class='tableau' formula="SUM(IF [Is Delivered] THEN 1 ELSE 0 END)" />
+      </column>
+      <column caption="SLA %" datatype='real' name="[SLA %]" role='measure' type='quantitative'>
+        <calculation class='tableau' formula="SUM([Within SLA]) / [Delivered Orders]" />
+      </column>
+      <column caption="Cancellation Rate" datatype='real' name="[Cancellation Rate]" role='measure' type='quantitative'>
+        <calculation class='tableau' formula="1 - [Delivered Orders] / [Total Orders]" />
+      </column>
+      <column caption="Net Revenue" datatype='real' name="[Net Revenue]" role='measure' type='quantitative'>
+        <calculation class='tableau' formula="SUM([net_revenue])" />
+      </column>
+      <column caption="AOV" datatype='real' name="[AOV]" role='measure' type='quantitative'>
+        <calculation class='tableau' formula="[Net Revenue] / [Delivered Orders]" />
+      </column>
+      <column caption="Contribution Margin %" datatype='real' name="[Contribution Margin %]" role='measure' type='quantitative'>
+        <calculation class='tableau' formula="SUM([contribution]) / [Net Revenue]" />
+      </column>
+      <column caption="Avg Delivery Min" datatype='real' name="[Avg Delivery Min]" role='measure' type='quantitative'>
+        <calculation class='tableau' formula="AVG([delivery_minutes])" />
+      </column>
+      <column caption="Avg Rating" datatype='real' name="[Avg Rating]" role='measure' type='quantitative'>
+        <calculation class='tableau' formula="AVG([rating])" />
+      </column>
+      <column caption="Low Rating Share" datatype='real' name="[Low Rating Share]" role='measure' type='quantitative'>
+        <calculation class='tableau' formula="SUM(IF [rating] &lt;= 2 THEN 1 ELSE 0 END) / COUNT([rating])" />
+      </column>
+      <column caption="Selected Metric" datatype='real' name="[Selected Metric]" role='measure' type='quantitative'>
+        <calculation class='tableau' formula='CASE [Parameters].[p.Metric]&#10;WHEN "Net Revenue" THEN [Net Revenue]&#10;WHEN "Orders" THEN [Total Orders]&#10;WHEN "SLA %" THEN [SLA %]&#10;WHEN "Contribution Margin %" THEN [Contribution Margin %]&#10;END' />
+      </column>
+      <column caption="City SLA %" datatype='real' name="[City SLA %]" role='measure' type='quantitative'>
+        <calculation class='tableau' formula="{FIXED : SUM([Within SLA])} / {FIXED : SUM(IF [Is Delivered] THEN 1 ELSE 0 END)}" />
+      </column>
+      <column caption="SLA vs City (pp)" datatype='real' name="[SLA vs City (pp)]" role='measure' type='quantitative'>
+        <calculation class='tableau' formula="([SLA %] - MIN([City SLA %])) * 100" />
+      </column>
+      <column caption="Signup Month" datatype='date' name="[Signup Month]" role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='DATE(DATEPARSE("yyyy-MM", [signup_month]))' />
+      </column>
+      <column caption="Months Since Signup" datatype='integer' name="[Months Since Signup]" role='dimension' type='ordinal'>
+        <calculation class='tableau' formula="DATEDIFF('month', [Signup Month], DATETRUNC('month', [order_datetime]))" />
+      </column>
+      <column caption="Cohort Size" datatype='integer' name="[Cohort Size]" role='measure' type='quantitative'>
+        <calculation class='tableau' formula="{FIXED [Signup Month] : COUNTD([customer_id])}" />
+      </column>
+      <column caption="Retention %" datatype='real' name="[Retention %]" role='measure' type='quantitative'>
+        <calculation class='tableau' formula="COUNTD([customer_id]) / MIN([Cohort Size])" />
+      </column>
+      <column caption="Customer Orders" datatype='integer' name="[Customer Orders]" role='measure' type='quantitative'>
+        <calculation class='tableau' formula="{FIXED [customer_id] : COUNTD([order_id])}" />
+      </column>
+      <column caption="Customer Type" datatype='string' name="[Customer Type]" role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [Customer Orders] &gt; 1 THEN "Repeat" ELSE "One-time" END' />
+      </column>
+      <column caption="Orders per Customer" datatype='real' name="[Orders per Customer]" role='measure' type='quantitative'>
+        <calculation class='tableau' formula="[Total Orders] / COUNTD([customer_id])" />
+      </column>
+      <column caption="Revenue per Customer" datatype='real' name="[Revenue per Customer]" role='measure' type='quantitative'>
+        <calculation class='tableau' formula="[Net Revenue] / COUNTD([customer_id])" />
+      </column>
+      <column caption="Normal Orders per Store-Day" datatype='real' name="[Normal Orders per Store-Day]" role='measure' type='quantitative'>
+        <calculation class='tableau' formula='{FIXED : SUM(IF [festival] = "No Festival" THEN 1 ELSE 0 END)}&#10;/ {FIXED : COUNTD(IF [festival] = "No Festival" THEN STR([Order Date]) + [store_id] END)}' />
+      </column>
+      <column caption="Festival Lift %" datatype='real' name="[Festival Lift %]" role='measure' type='quantitative'>
+        <calculation class='tableau' formula="([Total Orders] / COUNTD(STR([Order Date]) + [store_id])) / MIN([Normal Orders per Store-Day]) - 1" />
+      </column>
+      <column caption="Running Net Revenue" datatype='real' name="[Running Net Revenue]" role='measure' type='quantitative'>
+        <calculation class='tableau' formula="RUNNING_SUM([Net Revenue])" />
+      </column>
+      <column caption="Net Revenue MoM %" datatype='real' name="[Net Revenue MoM %]" role='measure' type='quantitative'>
+        <calculation class='tableau' formula="(ZN([Net Revenue]) - LOOKUP(ZN([Net Revenue]), -1)) / ABS(LOOKUP(ZN([Net Revenue]), -1))" />
+      </column>
+      <column caption="Orders 7-day Avg" datatype='real' name="[Orders 7-day Avg]" role='measure' type='quantitative'>
+        <calculation class='tableau' formula="WINDOW_AVG([Total Orders], -6, 0)" />
+      </column>
+      <column caption="Store Rank by SLA" datatype='real' name="[Store Rank by SLA]" role='measure' type='quantitative'>
+        <calculation class='tableau' formula="RANK([SLA %], 'desc')" />
+      </column>
+      <column caption="Show Top N" datatype='boolean' name="[Show Top N]" role='dimension' type='nominal'>
+        <calculation class='tableau' formula="[Store Rank by SLA] &lt;= [Parameters].[p.Top N Stores]" />
+      </column>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name="Start here - drag fields from the Data pane">
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{9AB0836B-21B2-4005-97FA-5B3DD6A35F32}' />
+    </worksheet>
+  </worksheets>
+</workbook>

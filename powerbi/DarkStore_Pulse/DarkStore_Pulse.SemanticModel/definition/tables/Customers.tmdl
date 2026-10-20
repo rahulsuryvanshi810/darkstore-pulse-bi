@@ -1,0 +1,52 @@
+table 'Customers'
+	lineageTag: 4fe9c10f-ad69-408d-a498-e6857e845490
+
+	column 'customer_id'
+		dataType: string
+		isHidden
+		lineageTag: 05606d4d-5af3-4371-bb58-acb906451c60
+		summarizeBy: none
+		sourceColumn: customer_id
+
+	column 'home_store_id'
+		dataType: string
+		isHidden
+		lineageTag: adb4167c-efd3-4243-a531-b66d1c851679
+		summarizeBy: none
+		sourceColumn: home_store_id
+
+	column 'signup_date'
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: e26f2287-ce89-416a-a20a-50a5229d6d1d
+		summarizeBy: none
+		sourceColumn: signup_date
+
+	column 'acquisition_channel'
+		dataType: string
+		lineageTag: fe751f87-3743-41e4-a9c6-4e3180ecae3e
+		summarizeBy: none
+		sourceColumn: acquisition_channel
+
+	column 'Cohort Month' =
+			DATE ( YEAR ( Customers[signup_date] ), MONTH ( Customers[signup_date] ), 1 )
+		dataType: dateTime
+		formatString: mmm yyyy
+		lineageTag: f19d50ef-40a9-493d-a045-fb8bf20db8e4
+		summarizeBy: none
+
+	partition 'Customers' = m
+		mode: import
+		source =
+				let
+				    Source  = Csv.Document(File.Contents(DataFolder & "customers.csv"),
+				                [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed   = Table.TransformColumnTypes(Headers, {
+				        {"customer_id", type text}, {"home_store_id", type text}, {"signup_date", type date},
+				        {"acquisition_channel", type text}}, "en-IN")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

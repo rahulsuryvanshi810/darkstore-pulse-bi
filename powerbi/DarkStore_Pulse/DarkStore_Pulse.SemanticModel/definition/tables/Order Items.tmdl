@@ -1,0 +1,60 @@
+table 'Order Items'
+	lineageTag: 9fc66702-a74b-477b-86c6-56b0cff204ea
+
+	column 'order_id'
+		dataType: string
+		isHidden
+		lineageTag: 9360466a-e518-4bf8-9e16-8e4e2e3a76ce
+		summarizeBy: none
+		sourceColumn: order_id
+
+	column 'product_id'
+		dataType: string
+		isHidden
+		lineageTag: 8cd9524f-0948-4721-b59c-8d1ef788bbd5
+		summarizeBy: none
+		sourceColumn: product_id
+
+	column 'quantity'
+		dataType: int64
+		formatString: 0
+		lineageTag: e87a4216-3609-4649-9605-235f729a7f3d
+		summarizeBy: none
+		sourceColumn: quantity
+
+	column 'mrp'
+		dataType: decimal
+		formatString: ₹#,0.00
+		lineageTag: 0d1444e8-79fc-4f21-92a6-c3c13ba9409c
+		summarizeBy: sum
+		sourceColumn: mrp
+
+	column 'unit_cost'
+		dataType: decimal
+		formatString: ₹#,0.00
+		lineageTag: 69e014dc-dd17-4a69-916b-4239e3e2325b
+		summarizeBy: sum
+		sourceColumn: unit_cost
+
+	column 'fulfilled'
+		dataType: int64
+		formatString: 0
+		lineageTag: a4e7e3b7-4784-4c32-966d-09ed754208a6
+		summarizeBy: none
+		sourceColumn: fulfilled
+
+	partition 'Order Items' = m
+		mode: import
+		source =
+				let
+				    Source  = Csv.Document(File.Contents(DataFolder & "order_items.csv"),
+				                [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed   = Table.TransformColumnTypes(Headers, {
+				        {"order_id", type text}, {"product_id", type text}, {"quantity", Int64.Type},
+				        {"mrp", Currency.Type}, {"unit_cost", Currency.Type}, {"fulfilled", Int64.Type}}, "en-IN")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

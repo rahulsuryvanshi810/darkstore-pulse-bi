@@ -1,0 +1,367 @@
+table _Measures
+	lineageTag: 860ad267-7951-4627-8ae2-f0111638c7b1
+
+	measure 'Total Orders' = COUNTROWS ( Orders )
+		lineageTag: f5c666d8-b39b-404f-90c7-8b6caa279d07
+		formatString: #,0
+		displayFolder: 1 Volume
+
+	measure 'Delivered Orders' = CALCULATE ( [Total Orders], Orders[status] = "Delivered" )
+		lineageTag: 49b3d57f-0450-4784-9180-b9da49621853
+		formatString: #,0
+		displayFolder: 1 Volume
+
+	measure 'Cancelled Orders' = CALCULATE ( [Total Orders], Orders[status] = "Cancelled" )
+		lineageTag: c5e6c7bf-7f45-4859-a9da-1e5fb8d80304
+		formatString: #,0
+		displayFolder: 1 Volume
+
+	measure 'Active Customers' = DISTINCTCOUNT ( Orders[customer_id] )
+		lineageTag: 42359685-ec18-4318-bab6-1d85699c8566
+		formatString: #,0
+		displayFolder: 1 Volume
+
+	measure 'New Customers' = CALCULATE ( [Total Orders], Orders[is_first_order] = 1 )
+		lineageTag: fbcdaeab-c9ca-40f1-b72e-9dd0f291b562
+		formatString: #,0
+		displayFolder: 1 Volume
+
+	measure 'Orders per Store per Day' = 
+			DIVIDE (
+			    [Total Orders],
+			    SUMX (
+			        VALUES ( Stores[store_id] ),
+			        CALCULATE ( DISTINCTCOUNT ( Orders[order_date] ) )
+			    )
+			)
+		lineageTag: 8de67336-43d6-41b5-acce-aad622e152a9
+		formatString: 0.0
+		displayFolder: 1 Volume
+
+	measure 'GMV' = SUM ( Orders[item_total] )
+		lineageTag: ed1f62f3-b10f-4e22-ab75-51a81f01d10b
+		formatString: ₹#,0
+		displayFolder: 2 Revenue & Profit
+
+	measure 'Net Revenue' = SUM ( Orders[net_revenue] )
+		lineageTag: 711730e0-a676-49c4-a79d-138102964b02
+		formatString: ₹#,0
+		displayFolder: 2 Revenue & Profit
+
+	measure 'Discounts' = CALCULATE ( SUM ( Orders[discount] ), Orders[status] = "Delivered" )
+		lineageTag: 3ab0a9d4-6fda-4cbc-aafe-b4b79f8e81f1
+		formatString: ₹#,0
+		displayFolder: 2 Revenue & Profit
+
+	measure 'Contribution' = SUM ( Orders[contribution] )
+		lineageTag: 4fde8815-cfed-4e43-a821-5d66982c7b60
+		formatString: ₹#,0
+		displayFolder: 2 Revenue & Profit
+
+	measure 'Contribution Margin %' = DIVIDE ( [Contribution], [Net Revenue] )
+		lineageTag: 5c959e17-e63d-4fd8-97b7-462efe164034
+		formatString: 0.0%
+		displayFolder: 2 Revenue & Profit
+
+	measure 'Contribution per Order' = DIVIDE ( [Contribution], [Delivered Orders] )
+		lineageTag: 1d562e2d-7693-4148-a41c-9396f4392b62
+		formatString: ₹#,0
+		displayFolder: 2 Revenue & Profit
+
+	measure 'AOV' = DIVIDE ( [Net Revenue], [Delivered Orders] )
+		lineageTag: 0e3cb0a7-d6f7-4d30-99ec-22fd6bc1c51a
+		formatString: ₹#,0
+		displayFolder: 2 Revenue & Profit
+
+	measure 'Discount % of GMV' = DIVIDE ( [Discounts], CALCULATE ( [GMV], Orders[status] = "Delivered" ) )
+		lineageTag: cc7026fc-2511-4732-815e-aa1d25cb912c
+		formatString: 0.0%
+		displayFolder: 2 Revenue & Profit
+
+	measure 'Revenue per Customer' = DIVIDE ( [Net Revenue], [Active Customers] )
+		lineageTag: c62086d0-b336-44b9-a732-93055b406660
+		formatString: ₹#,0
+		displayFolder: 2 Revenue & Profit
+
+	measure 'SLA Target (min)' = SELECTEDVALUE ( 'SLA Target'[SLA Target], 10 )
+		lineageTag: 4003d6ba-74d8-4be2-899e-2a2da5260607
+		formatString: 0.0
+		displayFolder: 3 Delivery & SLA
+
+	measure 'Orders Within SLA' = 
+			VAR _target = [SLA Target (min)]
+			RETURN
+			    CALCULATE (
+			        [Total Orders],
+			        Orders[status] = "Delivered",
+			        Orders[delivery_minutes] <= _target
+			    )
+		lineageTag: 0fb90ec4-0049-4ab5-9340-d345043c55e5
+		formatString: #,0
+		displayFolder: 3 Delivery & SLA
+
+	measure 'SLA %' = DIVIDE ( [Orders Within SLA], [Delivered Orders] )
+		lineageTag: 2e8530ea-a142-463d-996a-945033456b34
+		formatString: 0.0%
+		displayFolder: 3 Delivery & SLA
+
+	measure 'SLA Breaches' = [Delivered Orders] - [Orders Within SLA]
+		lineageTag: 110cbde0-f540-490b-bf12-b19c01f1a70b
+		formatString: #,0
+		displayFolder: 3 Delivery & SLA
+
+	measure 'Avg Delivery Min' = AVERAGE ( Orders[delivery_minutes] )
+		lineageTag: cf850981-f9a4-449a-846d-6a20f84a4f48
+		formatString: 0.0
+		displayFolder: 3 Delivery & SLA
+
+	measure 'Median Delivery Min' = MEDIAN ( Orders[delivery_minutes] )
+		lineageTag: 616a075b-64c1-4770-a671-235ede0e65e2
+		formatString: 0.0
+		displayFolder: 3 Delivery & SLA
+
+	measure 'P90 Delivery Min' = PERCENTILE.INC ( Orders[delivery_minutes], 0.9 )
+		lineageTag: 42df5822-ba18-42e0-84b0-62bdc9944095
+		formatString: 0.0
+		displayFolder: 3 Delivery & SLA
+
+	measure 'Cancellation Rate' = DIVIDE ( [Cancelled Orders], [Total Orders] )
+		lineageTag: e8a102b3-f63a-4346-81e9-b2edfefbbd8d
+		formatString: #,0
+		displayFolder: 3 Delivery & SLA
+
+	measure 'Stockout Order Rate' = DIVIDE ( CALCULATE ( [Total Orders], Orders[had_stockout] = 1 ), [Total Orders] )
+		lineageTag: 1859f6fa-dfdc-4502-ba5b-d22bb265349c
+		formatString: #,0
+		displayFolder: 3 Delivery & SLA
+
+	measure 'Avg Rating' = AVERAGE ( Orders[rating] )
+		lineageTag: 495233bb-d18a-492d-b540-3edc6381f1bc
+		formatString: 0.00
+		displayFolder: 3 Delivery & SLA
+
+	measure 'Low Rating Share' = DIVIDE ( CALCULATE ( COUNTROWS ( Orders ), Orders[rating] <= 2 ), COUNT ( Orders[rating] ) )
+		lineageTag: e7182c43-1e7c-4a5a-9d87-1ace58be90c2
+		formatString: #,0
+		displayFolder: 3 Delivery & SLA
+
+	measure 'Deliveries per Rider per Day' = 
+			DIVIDE (
+			    [Delivered Orders],
+			    SUMX (
+			        VALUES ( Orders[rider_id] ),
+			        CALCULATE ( DISTINCTCOUNT ( Orders[order_date] ), Orders[status] = "Delivered" )
+			    )
+			)
+		lineageTag: ea5ec9b9-2944-4172-87ff-12fbce2b34bc
+		formatString: 0.0
+		displayFolder: 3 Delivery & SLA
+
+	measure 'SLA % Rain Day' = CALCULATE ( [SLA %], Orders[is_rain_day] = 1 )
+		lineageTag: accb678b-22e3-4f2d-8fd2-fba499ec1455
+		formatString: 0.0%
+		displayFolder: 3 Delivery & SLA
+
+	measure 'SLA % Dry Day' = CALCULATE ( [SLA %], Orders[is_rain_day] = 0 )
+		lineageTag: f7847246-6903-42cd-8b3e-cb6184830765
+		formatString: 0.0%
+		displayFolder: 3 Delivery & SLA
+
+	measure 'Rain SLA Gap (pp)' = ( [SLA % Dry Day] - [SLA % Rain Day] ) * 100
+		lineageTag: 0316d813-25b0-43ac-b8b1-31810650a1da
+		formatString: 0.0
+		displayFolder: 3 Delivery & SLA
+
+	measure 'SLA Colour' = 
+			SWITCH (
+			    TRUE (),
+			    ISBLANK ( [SLA %] ), BLANK (),
+			    [SLA %] >= 0.6, "#2a78d6",
+			    [SLA %] >= 0.45, "#eda100",
+			    "#e34948"
+			)
+		lineageTag: ab150f1a-ff0f-4df8-9ee5-d09d120d807a
+		displayFolder: 3 Delivery & SLA
+
+	measure 'Net Revenue PM' = CALCULATE ( [Net Revenue], DATEADD ( 'Date'[Date], -1, MONTH ) )
+		lineageTag: 73ed1444-143f-46b5-8215-b9b0806fa260
+		formatString: ₹#,0
+		displayFolder: 4 Time intelligence
+
+	measure 'Net Revenue MoM %' = DIVIDE ( [Net Revenue] - [Net Revenue PM], [Net Revenue PM] )
+		lineageTag: 0a285f85-3042-4eb7-b3e8-f0b140a49801
+		formatString: 0.0%
+		displayFolder: 4 Time intelligence
+
+	measure 'Orders PM' = CALCULATE ( [Total Orders], DATEADD ( 'Date'[Date], -1, MONTH ) )
+		lineageTag: 3c64673e-f87c-4fa5-996e-a57ce08b732d
+		formatString: #,0
+		displayFolder: 4 Time intelligence
+
+	measure 'Orders MoM %' = DIVIDE ( [Total Orders] - [Orders PM], [Orders PM] )
+		lineageTag: 2d85ea60-e3ec-4813-80da-d6f746659d93
+		formatString: 0.0%
+		displayFolder: 4 Time intelligence
+
+	measure 'Net Revenue MTD' = TOTALMTD ( [Net Revenue], 'Date'[Date] )
+		lineageTag: 45dcedae-62f1-455e-9c52-d497162f3420
+		formatString: ₹#,0
+		displayFolder: 4 Time intelligence
+
+	measure 'Net Revenue Running Total' = 
+			CALCULATE (
+			    [Net Revenue],
+			    FILTER ( ALL ( 'Date'[Date] ), 'Date'[Date] <= MAX ( 'Date'[Date] ) )
+			)
+		lineageTag: f1b75463-2153-45d0-9b38-00aae819e2ed
+		formatString: ₹#,0
+		displayFolder: 4 Time intelligence
+
+	measure 'Orders 7D Avg' = 
+			AVERAGEX (
+			    DATESINPERIOD ( 'Date'[Date], MAX ( 'Date'[Date] ), -7, DAY ),
+			    [Total Orders]
+			)
+		lineageTag: df7d6a7c-1949-43cb-ba2a-d19c47e1a8b2
+		formatString: #,0
+		displayFolder: 4 Time intelligence
+
+	measure 'SLA % 7D Avg' = CALCULATE ( [SLA %], DATESINPERIOD ( 'Date'[Date], MAX ( 'Date'[Date] ), -7, DAY ) )
+		lineageTag: 52a91ae8-17e6-4d6c-b5e1-c89b9543962d
+		formatString: 0.0%
+		displayFolder: 4 Time intelligence
+
+	measure 'Festival Uplift %' = 
+			VAR _fest   = CALCULATE ( [Orders per Store per Day], Orders[festival] <> "No Festival" )
+			VAR _normal = CALCULATE ( [Orders per Store per Day], Orders[festival] = "No Festival" )
+			RETURN DIVIDE ( _fest - _normal, _normal )
+		lineageTag: d170ffb1-330c-4a1c-9361-252e8cad9558
+		formatString: 0.0%
+		displayFolder: 4 Time intelligence
+
+	measure 'Repeat Customers' = 
+			COUNTROWS (
+			    FILTER ( VALUES ( Orders[customer_id] ), CALCULATE ( COUNTROWS ( Orders ) ) > 1 )
+			)
+		lineageTag: 421be318-e1d6-47b9-93c0-58d5ef14795a
+		formatString: #,0
+		displayFolder: 5 Customers & Retention
+
+	measure 'Repeat Customer %' = DIVIDE ( [Repeat Customers], [Active Customers] )
+		lineageTag: 3cca463e-b322-4ed5-ba6c-f04ddcce3d1f
+		formatString: 0.0%
+		displayFolder: 5 Customers & Retention
+
+	measure 'Orders per Customer' = DIVIDE ( [Total Orders], [Active Customers] )
+		lineageTag: deb374f3-0eef-4509-aa09-981426d2b2ec
+		formatString: 0.0
+		displayFolder: 5 Customers & Retention
+
+	measure 'Cohort Customers' = CALCULATE ( DISTINCTCOUNT ( Customers[customer_id] ), ALL ( 'Date' ) )
+		lineageTag: 42dca41f-29e0-42b2-be9c-f3a7375a070a
+		formatString: #,0
+		displayFolder: 5 Customers & Retention
+
+	measure 'Retained Customers' = 
+			VAR _k = SELECTEDVALUE ( 'Cohort Age'[Month No] )
+			RETURN
+			    CALCULATE (
+			        DISTINCTCOUNT ( Orders[customer_id] ),
+			        ALL ( 'Date' ),
+			        Orders[Months Since Signup] = _k
+			    )
+		lineageTag: 6afd6fc4-55b7-4e7c-a928-0dd8d3df2741
+		formatString: #,0
+		displayFolder: 5 Customers & Retention
+
+	measure 'Retention %' = DIVIDE ( [Retained Customers], [Cohort Customers] )
+		lineageTag: d0f31204-7757-4b06-9866-c4aad5ef5290
+		formatString: 0.0%
+		displayFolder: 5 Customers & Retention
+
+	measure 'Units Sold' = 
+			CALCULATE (
+			    SUMX ( 'Order Items', 'Order Items'[quantity] ),
+			    'Order Items'[fulfilled] = 1,
+			    Orders[status] = "Delivered"
+			)
+		lineageTag: d6674f8d-09e7-4c7d-ac54-14dc44e66fcb
+		formatString: #,0
+		displayFolder: 6 Product (uses Order Items)
+
+	measure 'Item Revenue' = 
+			CALCULATE (
+			    SUMX ( 'Order Items', 'Order Items'[quantity] * 'Order Items'[mrp] ),
+			    'Order Items'[fulfilled] = 1,
+			    Orders[status] = "Delivered"
+			)
+		lineageTag: 119fbed6-3faf-4012-b167-26c3aa4a24fc
+		formatString: ₹#,0
+		displayFolder: 6 Product (uses Order Items)
+
+	measure 'Item Gross Profit' = 
+			CALCULATE (
+			    SUMX ( 'Order Items', 'Order Items'[quantity] * ( 'Order Items'[mrp] - 'Order Items'[unit_cost] ) ),
+			    'Order Items'[fulfilled] = 1,
+			    Orders[status] = "Delivered"
+			)
+		lineageTag: b3a35ad2-44a5-477d-a3d3-e22e29aa952a
+		formatString: ₹#,0
+		displayFolder: 6 Product (uses Order Items)
+
+	measure 'Item Margin %' = DIVIDE ( [Item Gross Profit], [Item Revenue] )
+		lineageTag: e0520f96-0615-4fdf-9be5-f7ef82e4c11c
+		formatString: 0.0%
+		displayFolder: 6 Product (uses Order Items)
+
+	measure 'Item Stockout Rate' = 1 - DIVIDE ( CALCULATE ( COUNTROWS ( 'Order Items' ), 'Order Items'[fulfilled] = 1 ), COUNTROWS ( 'Order Items' ) )
+		lineageTag: 10f5b66b-787f-40fd-b5fd-4085855f869d
+		formatString: #,0
+		displayFolder: 6 Product (uses Order Items)
+
+	measure 'Category Revenue Share' = DIVIDE ( [Item Revenue], CALCULATE ( [Item Revenue], ALL ( Products[category] ) ) )
+		lineageTag: c8d65b83-ef7a-4cac-831c-c49faa6db3ab
+		formatString: ₹#,0
+		displayFolder: 6 Product (uses Order Items)
+
+	measure 'Top N Value' = SELECTEDVALUE ( 'Top N'[Top N], 10 )
+		lineageTag: bd7d9b1a-5757-49a7-b40c-19b6fe87712e
+		formatString: #,0
+		displayFolder: 6 Product (uses Order Items)
+
+	measure 'Product Rank' = RANKX ( ALLSELECTED ( Products[product_name] ), [Item Revenue], , DESC, DENSE )
+		lineageTag: 229bcfc6-ec68-43d1-933e-f2ba65b7733c
+		formatString: #,0
+		displayFolder: 6 Product (uses Order Items)
+
+	measure 'Show in Top N' = IF ( [Product Rank] <= [Top N Value], 1, 0 )
+		lineageTag: 013cd2c7-d07e-420a-8696-e751361e70e7
+		formatString: #,0
+		displayFolder: 6 Product (uses Order Items)
+
+	measure 'Page Subtitle' = 
+			VAR _stores = IF ( ISFILTERED ( Stores[store_name] ),
+			                   CONCATENATEX ( VALUES ( Stores[store_name] ), Stores[store_name], ", " ),
+			                   "All 8 dark stores" )
+			RETURN _stores & "  |  " & FORMAT ( MIN ( 'Date'[Date] ), "d mmm yyyy" )
+			              & " - " & FORMAT ( MAX ( 'Date'[Date] ), "d mmm yyyy" )
+		lineageTag: 13ccdbce-5cb6-445e-8b2f-08e551865930
+		displayFolder: 7 Titles & labels (dynamic text)
+
+	measure 'SLA Headline' = 
+			"Only " & FORMAT ( [SLA %], "0%" ) & " of orders met the " & [SLA Target (min)]
+			    & "-minute promise; evening rush and rain days drive most breaches."
+		lineageTag: ae63fb2f-c696-416b-bd84-a9522fb29de5
+		displayFolder: 7 Titles & labels (dynamic text)
+
+	column 'Value'
+		dataType: int64
+		isHidden
+		lineageTag: 006aa272-e5b2-41fe-ac1c-246fbae06434
+		summarizeBy: none
+		sourceColumn: [Value]
+
+	partition _Measures = calculated
+		mode: import
+		source = { 0 }
+

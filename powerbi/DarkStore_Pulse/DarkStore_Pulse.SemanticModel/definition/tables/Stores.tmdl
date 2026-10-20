@@ -1,0 +1,89 @@
+table 'Stores'
+	lineageTag: 4015ca64-3d42-4c9e-bafe-7d9d94e4ea17
+
+	column 'store_id'
+		dataType: string
+		isHidden
+		lineageTag: 9ea4c96c-5aad-41bd-b922-604c70089fbd
+		summarizeBy: none
+		sourceColumn: store_id
+
+	column 'store_name'
+		dataType: string
+		lineageTag: b0bdddbe-a8c6-40d1-a3e7-b50b9d73fae7
+		summarizeBy: none
+		sourceColumn: store_name
+
+	column 'zone'
+		dataType: string
+		lineageTag: 42407114-ad52-4221-92db-3b4c3cae1f32
+		summarizeBy: none
+		sourceColumn: zone
+
+	column 'latitude'
+		dataType: double
+		lineageTag: da6108f2-2769-43bc-8a42-0773ef09050c
+		dataCategory: Latitude
+		summarizeBy: none
+		sourceColumn: latitude
+
+	column 'longitude'
+		dataType: double
+		lineageTag: 7aa0b061-ff43-4158-b076-5fa4742b4aa8
+		dataCategory: Longitude
+		summarizeBy: none
+		sourceColumn: longitude
+
+	column 'open_date'
+		dataType: dateTime
+		formatString: d mmm yyyy
+		lineageTag: 7491f87d-af87-481e-b8ab-637d3da34034
+		summarizeBy: none
+		sourceColumn: open_date
+
+	column 'riders'
+		dataType: int64
+		formatString: 0
+		lineageTag: 55109775-2301-4296-acac-d1302c0a8c34
+		summarizeBy: none
+		sourceColumn: riders
+
+	column 'city'
+		dataType: string
+		lineageTag: f1165d22-32d6-498b-bf6b-6a2e752f319e
+		dataCategory: City
+		summarizeBy: none
+		sourceColumn: city
+
+	column 'sla_minutes'
+		dataType: int64
+		formatString: 0
+		lineageTag: c3ca2048-bf13-4edc-8fe5-33c9062391db
+		summarizeBy: none
+		sourceColumn: sla_minutes
+
+	column 'location'
+		dataType: string
+		lineageTag: c99499f2-e95a-40c3-8c42-7a9735a689f3
+		dataCategory: Place
+		summarizeBy: none
+		sourceColumn: location
+
+	partition 'Stores' = m
+		mode: import
+		source =
+				let
+				    Source  = Csv.Document(File.Contents(DataFolder & "stores.csv"),
+				                [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed   = Table.TransformColumnTypes(Headers, {
+				        {"store_id", type text}, {"store_name", type text}, {"zone", type text},
+				        {"latitude", type number}, {"longitude", type number}, {"open_date", type date},
+				        {"riders", Int64.Type}, {"city", type text}, {"sla_minutes", Int64.Type}}, "en-IN"),
+				    // "Kothrud, Pune" geocodes reliably in the map visual
+				    AddLoc  = Table.AddColumn(Typed, "location", each [store_name] & ", Pune, India", type text)
+				in
+				    AddLoc
+
+	annotation PBI_ResultType = Table
+

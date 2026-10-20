@@ -1,0 +1,28 @@
+relationship c27b5830-a29d-4f4b-87d3-bccf16a075f2
+	fromColumn: 'Orders'.'order_date'
+	toColumn: 'Date'.'Date'
+
+relationship d27e8028-e735-406e-9ef5-eff0cadc0164
+	fromColumn: 'Orders'.'store_id'
+	toColumn: 'Stores'.'store_id'
+
+relationship 6562a928-65ae-4551-9623-10ac398ab77c
+	fromColumn: 'Riders'.'store_id'
+	toColumn: 'Stores'.'store_id'
+
+relationship 3ec42481-864b-4f98-bd36-11826643499c
+	isActive: false
+	fromColumn: 'Orders'.'rider_id'
+	toColumn: 'Riders'.'rider_id'
+
+relationship 861e0a4a-55e5-4faf-a1a3-858e2f784c32
+	fromColumn: 'Orders'.'customer_id'
+	toColumn: 'Customers'.'customer_id'
+
+relationship 86b0bb00-aa3e-4496-bfd5-7f363b0f578e
+	fromColumn: 'Order Items'.'order_id'
+	toColumn: 'Orders'.'order_id'
+
+relationship bf6ab10b-306b-4c40-a5aa-5b079ad22ad8
+	fromColumn: 'Order Items'.'product_id'
+	toColumn: 'Products'.'product_id'

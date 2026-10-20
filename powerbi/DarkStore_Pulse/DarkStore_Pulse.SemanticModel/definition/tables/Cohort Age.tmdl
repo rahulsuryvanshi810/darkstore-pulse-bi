@@ -1,0 +1,14 @@
+table 'Cohort Age'
+	lineageTag: 3612896f-ed8e-46a0-8c4d-08eebd6b367c
+
+	column 'Month No'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0aa5f0bc-06c3-47c8-b4fc-8065342740d2
+		summarizeBy: none
+		sourceColumn: [Value]
+
+	partition 'Cohort Age' = calculated
+		mode: import
+		source = GENERATESERIES ( 0, 11, 1 )
+

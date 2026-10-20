@@ -1,0 +1,14 @@
+table 'SLA Target'
+	lineageTag: 67d5d79c-78d6-4c45-9d02-159d1f7c9578
+
+	column 'SLA Target'
+		dataType: int64
+		formatString: 0
+		lineageTag: 854678e9-4740-431b-9c60-545e6ff30b71
+		summarizeBy: none
+		sourceColumn: [Value]
+
+	partition 'SLA Target' = calculated
+		mode: import
+		source = GENERATESERIES ( 5, 20, 1 )
+
